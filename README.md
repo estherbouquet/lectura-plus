@@ -24,3 +24,4 @@ Install [python-escpos - Python library to manipulate ESC/POS Printers](https://
       `sudo adduser $USER dialout` where `$USER` is the name that appeared when you did the previous command
       
 6. restart `udev` with the command `sudo udevadm control --reload` (or) `sudo service udev restart`
+7. reboot your raspberry
