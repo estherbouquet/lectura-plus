@@ -1,7 +1,7 @@
 # lectura-plus
 an open-source old newspapers distributor 
 
-All of the next steps have been developed for a raspberry pi 3 B+ Version 9 of stretch
+All of the next steps have been developed for a raspberry pi 3 B+ Version 9 of stretch and an Epson TM-T20III
 
 Install [python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/user/installation.html)
   
