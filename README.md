@@ -7,7 +7,7 @@ this project was
 
 All of the next steps have been developed for a raspberry pi 3 B+ running Stretch Version 9 and an Epson TM-T20III.
 
-## install [python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/user/installation.html)
+## 💿 install [python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/user/installation.html)
   
   - open your terminal
   
@@ -31,7 +31,7 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   - restart `udev` with the command `sudo udevadm control --reload` (or) `sudo service udev restart`
   - reboot your raspberry
 
-## test your installation
+## 📠 test your installation
 
   - open your terminal
   
