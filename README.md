@@ -7,7 +7,7 @@ Install [python-escpos - Python library to manipulate ESC/POS Printers](https://
   
 1. open your terminal
   
-2. `pip install python-escpos`
+2. `pip3 install python-escpos`
     - if you have a MemoryError, try to run `pip` with `--no-cache-dir` such as `pip --no-cache-dir install python-escpos`
 
 3. get the Product ID and Vendor ID from the `lsusb` command
