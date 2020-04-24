@@ -51,7 +51,7 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
       p.text("Hello World\n")
       p.cut() 
       ``` 
-      :thumbup: in `p = Usb(0x04b8, 0x0e28, 0)` you need to replace `04b8` and `0e28`by your own vendor and product ID.
+      📢 in `p = Usb(0x04b8, 0x0e28, 0)` you need to replace `04b8` and `0e28`by your own vendor and product ID.
   
   - save the file and exit it
   
