@@ -48,7 +48,7 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
       from escpos.printer import Usb 
       
       p = Usb(0x04b8, 0x0e28, 0)
-      p.text("Hello World\n")
+      p.text("hello lovely human\n")
       p.cut() 
       ``` 
       📢 in `p = Usb(0x04b8, 0x0e28, 0)` you need to replace `04b8` and `0e28`by your own vendor and product ID.
@@ -57,4 +57,6 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   
   - make sure the printer is plugged correctly
   
-  - run `python3 nameofyourfile.py` and it works!
+  - run `python3 nameofyourfile.py`
+  
+  if the installation worked, you should now have a tiny printed paper greeting you 🔖
