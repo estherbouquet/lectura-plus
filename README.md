@@ -26,12 +26,18 @@ All of the next steps have been developed for a raspberry pi 3 B+ Version 9 of s
   - reboot your raspberry
 
 ### 2. test your installation
+
   - open your terminal
+  
   - create a new project folder using `mkdir nameofyourfolder`
+  
   - go inside using `cd nameofyourfolder`
+  
   - when you are in, write `touch nameofyourfile.py`
+  
   - and write `sudo nano nameofyourfile.py` (will open the file and let you write inside of it) 
     - inside the file, you can copy paste this snippet of code: <br>
+    
       ```
       from escpos.printer import Usb 
       
