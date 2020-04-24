@@ -12,7 +12,9 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   - open your terminal
   
   - write `pip3 install python-escpos`
-    - if you have a MemoryError, try to run `pip3` with `--no-cache-dir` such as `pip3 --no-cache-dir install python-escpos` but you should not need it.
+    - if you have a MemoryError, try to run `pip3` with `--no-cache-dir` such as `pip3 --no-cache-dir install python-escpos` but you should not need it
+    
+  - plug the usb cable of the thermal printer into the raspberry
 
   - get the Product ID and Vendor ID using `lsusb` command
     - you should have something like: `Bus 001 Device 007: ID 04b8:0e28 Seiko Epson Corp.` <br>
