@@ -1,9 +1,13 @@
 # lectura-plus
-an open-source old newspapers distributor 
+an open-source old newspapers distributor based on Lectura+ database.
 
-All of the next steps have been developed for a raspberry pi 3 B+ Version 9 of stretch and an Epson TM-T20III
+this project was
+  - initiated by Auvergne-Rhône-Alpes Livre et Lecture
+  - created, designed and developed by Léa Belzunces, Esther Bouquet and Déborah-Loïs Séry
 
-### 1. install [python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/user/installation.html)
+All of the next steps have been developed for a raspberry pi 3 B+ running Stretch Version 9 and an Epson TM-T20III.
+
+## install [python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/user/installation.html)
   
   - open your terminal
   
@@ -25,7 +29,7 @@ All of the next steps have been developed for a raspberry pi 3 B+ Version 9 of s
   - restart `udev` with the command `sudo udevadm control --reload` (or) `sudo service udev restart`
   - reboot your raspberry
 
-### 2. test your installation
+## test your installation
 
   - open your terminal
   
