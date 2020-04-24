@@ -55,4 +55,6 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   
   - save the file and exit it
   
+  - make sure the printer is plugged correctly
+  
   - run `python3 nameofyourfile.py` and it works!
