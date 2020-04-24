@@ -47,7 +47,7 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   - and write `sudo nano nameofyourfile.py` (will open the file and let you write inside of it) 
     - inside the file, you can copy paste this snippet of code: <br>
     
-      ```
+      ```python
       from escpos.printer import Usb 
       
       p = Usb(0x04b8, 0x0e28, 0)
