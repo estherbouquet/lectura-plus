@@ -41,11 +41,12 @@ All of the next steps have been developed for a raspberry pi 3 B+ Version 9 of s
       ```
       from escpos.printer import Usb 
       
-      p = Usb(0x04b8,0x0e28,0)
+      p = Usb(0x04b8, 0x0e28, 0)
       p.text("Hello World\n")
-      p.barcode('1324354657687','EAN13',64,2,'','')
       p.cut() 
       ``` 
-    
-    
-
+      :thumbup: in `p = Usb(0x04b8, 0x0e28, 0)` you need to replace `04b8` and `0e28`by your own vendor and product ID.
+  
+  - save the file and exit it
+  
+  - run `python3 nameofyourfile.py` and it works!
