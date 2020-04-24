@@ -12,6 +12,8 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   
   - open your terminal
   
+  - install dependencies: `sudo apt-get install python3 python3-setuptools python3-pip libjpeg8-dev`
+  
   - write `pip3 install python-escpos`
     - if you have a MemoryError, try to run `pip3` with `--no-cache-dir` such as `pip3 --no-cache-dir install python-escpos` but you should not need it
     
