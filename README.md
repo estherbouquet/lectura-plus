@@ -63,3 +63,5 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   - run `python3 nameofyourfile.py`
   
   if the installation worked, you should now have a tiny printed paper greeting you 🔖
+ 
+ otherwise, you can find more information [here (raspi doc)](https://python-escpos.readthedocs.io/en/latest/user/raspi.html), or [here (original github repo)](https://github.com/python-escpos/python-escpos).
