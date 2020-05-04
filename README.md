@@ -7,6 +7,8 @@ this project was
 
 All of the next steps have been developed for a raspberry pi 3 B+ running Stretch Version 9 and an Epson TM-T20III.
 
+![how codes and components are intertwined](https://github.com/estherbouquet/lectura-plus/blob/master/electrogif.gif)
+
 
 ## 💿 install [python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/user/installation.html)
   
