@@ -1,17 +1,17 @@
 # Mettre tous les fichiers dans un sous dossier de la clé usb (genre /input)
 
 # usb_folder=/media/NOM_USB/input
-file='/Users/leabelzunces/code/lectura/test.txt'
+file='/Users/leabelzunces/code/lectura-plus/test.txt'
 
 # On crée les trois dossiers
-mkdir '/Users/leabelzunces/code/lectura/input'
-mkdir '/Users/leabelzunces/code/lectura/output'
-mkdir '/Users/leabelzunces/code/lectura/images'
+mkdir '/Users/leabelzunces/code/lectura-plus/input'
+mkdir '/Users/leabelzunces/code/lectura-plus/output'
+mkdir '/Users/leabelzunces/code/lectura-plus/images'
 
 # On les stocke dans des variables
-input_folder='/Users/leabelzunces/code/lectura/input'
-output_folder='/Users/leabelzunces/code/lectura/output'
-images_folder='/Users/leabelzunces/code/lectura/images'
+input_folder='/Users/leabelzunces/code/lectura-plus/input'
+output_folder='/Users/leabelzunces/code/lectura-plus/output'
+images_folder='/Users/leabelzunces/code/lectura-plus/images'
 
 # On copie les fichiers de la clé usb dans le dossier input
 cp $file $input_folder
