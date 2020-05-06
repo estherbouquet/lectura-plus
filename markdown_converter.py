@@ -1,5 +1,6 @@
 import markdown # à installer à la main via `sudo apt-get install python3-markdown`
 import os
+import imgkit
 # import re (au cas où il faut utiliser la regex)
 
 # On définint le dossier avec tous les fichiers importés
@@ -31,3 +32,5 @@ for path, dirs, files in os.walk(input_folder):
     output_file.write("<body>\n")
     output_file.write(html)
     output_file.write("\n</body>")
+    output_file.close() # important sinon erreur quand on veut faire une capture et pas possible de l'enregistrer
+    imgkit.from_file('./output/'+formatted_filename+'.html', './images/'+formatted_filename+'.jpg', css='./stylesheet.css')
