@@ -1,6 +1,7 @@
 import markdown # à installer à la main via `sudo apt-get install python3-markdown`
 import os
 import imgkit #à installer à la main via `sudo apt-get install wkhtmltopdf`
+import qrcodegenerator
 
 # On définit le dossier avec tous les fichiers importés
 input_folder = './input'
@@ -24,10 +25,17 @@ for path, dirs, files in os.walk(input_folder):
 		
 		# GESTION DES FICHIERS TEXTE
 		if fullpath.endswith(".txt"): # Si le fichier finit par .txt
-			# On ouvre le fichier
+			
+			# On ouvre le fichier une première fois pour lancer le script qui récupère l'URL et la transforme en qrcode
+			with open(fullpath, 'r') as myfile:
+				filename = os.path.basename(myfile.name) # On récupère le filename pour pouvoir appeler le qrcode de la même façon
+				qrcodegenerator.extractURL(myfile, filename) # On appelle la fonction extractURL dans le fichier qrcodegenerator
+			
+			# On réouvre le fichier une seconde fois pour lancer la récupération du contenu global
+			# C'est moche mais soit ça ne génère pas de qrcode soit ça ne génère pas le contenu textuel
 			with open(fullpath, 'r') as myfile:
 				contents = myfile.read() # On récupère le contenu
-				filename = os.path.basename(myfile.name) # On récupère le nom du fichier (sans le chemin d'accès)
+				filename = os.path.basename(myfile.name)
 			
 			formatted_filename = os.path.splitext(filename)[0] # On retire l'extension (.txt) du nom du fichier
 
@@ -54,6 +62,10 @@ for path, dirs, files in os.walk(input_folder):
 				value = imgFilenames[index] # On récupère la valeur (str) qui correspond à l'emplacement de l'index
 				value = "../input/" + value + ".JPG" # On recrée le chemin d'accès de l'image
 				output_file.write('<img src="' + value + '"></img>\n') # On insère le chemin d'accès de l'image dans une balise img
+			
+			# On insère le QRcode depuis dossier input
+			qrcode = "../input/" + formatted_filename + ".png" # On recrée le chemin d'accès de l'image
+			output_file.write('<div class="qrcode">\n<img src="' + qrcode + '"></img>\n</div>') # On insère le chemin d'accès de l'image dans une balise img			
 			
 			#On referme notre balise body
 			output_file.write("\n</body>")
