@@ -71,3 +71,5 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   - open your terminal
   
   - install dependencies: `sudo apt-get install python3-markdown` and `sudo apt-get install wkhtmltopdf`
+
+  - install dependency `pip3 install pyqrcode` and module `pip3 install pypng`
