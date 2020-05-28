@@ -73,3 +73,5 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   - install dependencies: `sudo apt-get install python3-markdown` and `sudo apt-get install wkhtmltopdf`
 
   - install dependency `pip3 install pyqrcode` and module `pip3 install pypng`
+
+  - install bash dependency `apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal

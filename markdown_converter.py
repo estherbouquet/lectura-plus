@@ -1,30 +1,34 @@
 import markdown # à installer à la main via `sudo apt-get install python3-markdown`
 import os
-import imgkit #à installer à la main via `sudo apt-get install wkhtmltopdf`
-import qrcodegenerator
+import imgkit # à installer à la main via `sudo apt-get install wkhtmltopdf`
+import qrcodegenerator # on importe le fichier qrcodegenerator.py, ce qui nous permet d'accéder à la fonction extractURL
 
 # On définit le dossier avec tous les fichiers importés
 input_folder = './input'
-# On crée une liste qui contiendra le nom des images repérées dans le dossier input
-imgFilenames = []
 
-# Pour chaque chemin, dossiers et fichiers dans ./input_folder
-for path, dirs, files in os.walk(input_folder):
+# On crée une liste qui contiendra le nom des images repérées dans le dossier input
+JPGFilenames = []
+jpgFilenames = []
+
+# GESTION DES FICHIERS IMAGES
+for subdir, dirs, files in os.walk(input_folder): # Pour chaque chemin, dossiers et fichiers dans ./input_folder
 	for filename in files: # et pour chaque nom de fichier pour chaque fichier
-		fullpath = os.path.join(path, filename) # on enregistre le chemin du fichier et son nom dans une variable de type str (important sinon erreur d'ouverture car chemin et nom de nature différente)
+		fullpath = subdir + os.sep + filename # on enregistre le chemin du fichier et son nom dans une variable de type str (important sinon erreur d'ouverture car chemin et nom de nature différente)
 		
-		# GESTION DES FICHIERS IMAGE
 		if filename.endswith(".JPG"): # Si le fichier finit par .JPG
 			formatted_filename = os.path.splitext(filename)[0] # On supprime l'extension .JPG du nom du fichier
-			imgFilenames.append(formatted_filename) # On ajoute le nom formaté à notre liste
+			JPGFilenames.append(formatted_filename) # On ajoute le nom formaté à notre liste
+	
+		if filename.endswith(".jpg"): # Si le fichier finit par .JPG
+			formatted_filename = os.path.splitext(filename)[0] # On supprime l'extension .JPG du nom du fichier
+			jpgFilenames.append(formatted_filename) # On ajoute le nom formaté à notre liste
+	
+# GESTION DES FICHIERS TEXTES
+for subdir, dirs, files in os.walk(input_folder):
+	for filename in files:
+		fullpath = subdir + os.sep + filename 
 
-# Pour chaque chemin, dossiers et fichiers dans ./input_folder	
-for path, dirs, files in os.walk(input_folder):
-	for filename in files: # et pour chaque nom de fichier pour chaque fichier
-		fullpath = os.path.join(path, filename) # on enregistre le chemin du fichier et son nom dans une variable de type str (important sinon erreur d'ouverture car chemin et nom de nature différente)
-		
-		# GESTION DES FICHIERS TEXTE
-		if fullpath.endswith(".txt"): # Si le fichier finit par .txt
+		if fullpath.endswith(".txt"):
 			
 			# On ouvre le fichier une première fois pour lancer le script qui récupère l'URL et la transforme en qrcode
 			with open(fullpath, 'r') as myfile:
@@ -36,9 +40,9 @@ for path, dirs, files in os.walk(input_folder):
 			with open(fullpath, 'r') as myfile:
 				contents = myfile.read() # On récupère le contenu
 				filename = os.path.basename(myfile.name)
-			
-			formatted_filename = os.path.splitext(filename)[0] # On retire l'extension (.txt) du nom du fichier
 
+			formatted_filename = os.path.splitext(filename)[0] # On retire l'extension (.txt) du nom du fichier
+			
 			output_file = open(r'./output/'+formatted_filename+'.html', 'w') # On crée et ouvre le fichier avec le même nom formaté dans le dossier ./output
 
 			# On ajoute les balises header pour link le CSS
@@ -50,19 +54,24 @@ for path, dirs, files in os.walk(input_folder):
 			
 			# On vérifie si le nom du fichier txt est identique à un des noms dans le tableau d'images
 			current = formatted_filename
-			boolean = current in imgFilenames #V ou F, current est dans la liste imgFilenames
-
+			booleanJPG = current in JPGFilenames #V ou F, current est dans la liste imgFilenames
+			booleanjpg = current in jpgFilenames
 			# On ouvre la balise body, on insère le HTML converti
 			output_file.write("<body>\n")
 			output_file.write(html)
 			
 			# On insère l'image s'il y en a une
-			if boolean: # Si current est identique à une des strings dans imgFilenames (et donc si boolean == true)
-				index = imgFilenames.index(current) # On récupère l'index 
-				value = imgFilenames[index] # On récupère la valeur (str) qui correspond à l'emplacement de l'index
-				value = "../input/" + value + ".JPG" # On recrée le chemin d'accès de l'image
+			if booleanJPG: # Si current est identique à une des strings dans imgFilenames (et donc si boolean == true)
+				index = JPGFilenames.index(current) # On récupère l'index 
+				value = JPGFilenames[index] # On récupère la valeur (str) qui correspond à l'emplacement de l'index
+				value = '.'+subdir + "/" + value + ".JPG" # On recrée le chemin d'accès de l'image
 				output_file.write('<img src="' + value + '"></img>\n') # On insère le chemin d'accès de l'image dans une balise img
-			
+
+			elif booleanjpg:
+				index = jpgFilenames.index(current)
+				value = jpgFilenames[index]
+				value = '.'+subdir + "/" + value + ".jpg"
+				output_file.write('<img src="' + value + '"></img>\n')
 			# On insère le QRcode depuis dossier input
 			qrcode = "../input/" + formatted_filename + ".png" # On recrée le chemin d'accès de l'image
 			output_file.write('<div class="qrcode">\n<img src="' + qrcode + '"></img>\n</div>') # On insère le chemin d'accès de l'image dans une balise img			
