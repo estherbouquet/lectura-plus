@@ -1,27 +1,16 @@
 import markdown # à installer à la main via `sudo apt-get install python3-markdown`
 import os
 import imgkit # à installer à la main via `sudo apt-get install wkhtmltopdf`
+
+# importation des sous fichiers python dont on a besoin
+import imgDetection # on importe le fichier imgDetection.py, ce qui nous permet d'accéder à la fonction returnImgFound
 import qrcodegenerator # on importe le fichier qrcodegenerator.py, ce qui nous permet d'accéder à la fonction extractURL
 
 # On définit le dossier avec tous les fichiers importés
 input_folder = './input'
 
-# On crée une liste qui contiendra le nom des images repérées dans le dossier input
-JPGFilenames = []
-jpgFilenames = []
-
-# GESTION DES FICHIERS IMAGES
-for subdir, dirs, files in os.walk(input_folder): # Pour chaque chemin, dossiers et fichiers dans ./input_folder
-	for filename in files: # et pour chaque nom de fichier pour chaque fichier
-		fullpath = subdir + os.sep + filename # on enregistre le chemin du fichier et son nom dans une variable de type str (important sinon erreur d'ouverture car chemin et nom de nature différente)
-		
-		if filename.endswith(".JPG"): # Si le fichier finit par .JPG
-			formatted_filename = os.path.splitext(filename)[0] # On supprime l'extension .JPG du nom du fichier
-			JPGFilenames.append(formatted_filename) # On ajoute le nom formaté à notre liste
-	
-		if filename.endswith(".jpg"): # Si le fichier finit par .JPG
-			formatted_filename = os.path.splitext(filename)[0] # On supprime l'extension .JPG du nom du fichier
-			jpgFilenames.append(formatted_filename) # On ajoute le nom formaté à notre liste
+# On stocke dans des variables les deux listes retournées (sous la forme d'un tuple) par la fonction returnImgFound du fichier imgDetection
+JPGFilenames, jpgFilenames = imgDetection.returnImgFound()
 	
 # GESTION DES FICHIERS TEXTES
 for subdir, dirs, files in os.walk(input_folder):
