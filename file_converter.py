@@ -3,14 +3,14 @@ import os
 import imgkit # à installer à la main via `sudo apt-get install wkhtmltopdf`
 
 # importation des sous fichiers python dont on a besoin
-import imgDetection # on importe le fichier imgDetection.py, ce qui nous permet d'accéder à la fonction returnImgFound
+import img_detection # on importe le fichier imgDetection.py, ce qui nous permet d'accéder à la fonction returnImgFound
 import qrcodegenerator # on importe le fichier qrcodegenerator.py, ce qui nous permet d'accéder à la fonction extractURL
 
 # On définit le dossier avec tous les fichiers importés
 input_folder = './input'
 
 # On stocke dans des variables les deux listes retournées (sous la forme d'un tuple) par la fonction returnImgFound du fichier imgDetection
-JPGFilenames, jpgFilenames = imgDetection.returnImgFound()
+JPGFilenames, jpgFilenames = img_detection.returnImgFound()
 	
 # GESTION DES FICHIERS TEXTES
 for subdir, dirs, files in os.walk(input_folder):
@@ -65,10 +65,10 @@ for subdir, dirs, files in os.walk(input_folder):
 			qrcode = "../input/" + formatted_filename + ".png" # On recrée le chemin d'accès de l'image
 			output_file.write('<div class="qrcode">\n<img src="' + qrcode + '"></img>\n</div>') # On insère le chemin d'accès de l'image dans une balise img			
 			
-			#On referme notre balise body
+			# On referme notre balise body
 			output_file.write("\n</body>")
 			
-			#Et on ferme le fichier
+			# Et on ferme le fichier
 			output_file.close() 
 		
 			# On enregistre en jpg une capture du fichier html avec le css d'appliqué 

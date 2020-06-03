@@ -29,12 +29,12 @@ cp -r $usb $input_folder
 source /home/pi/Documents/lectura-plus/encoding.sh
 
 # On exécute le script python qui convertit les fichiers du dossier input en HTML
-python3 markdown_converter.py
+python3 file_converter.py
 
 # On exécute le script qui ouvre le fichier HTML et fait un screenshot
 
 # python3 make_screenshot.py
 
 # On supprime le dossier input et output
-rm -rf $input_folder
-rm -rf $output_folder
+rm -r $input_folder
+rm -r $output_folder
