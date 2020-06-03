@@ -6,7 +6,7 @@ def printFile():
 
 	p = Usb(0x04b8, 0x0e28, 0) # vendor and product ID allow us to communicate with the printer
 	p.text("hello human, i wish u a nice day\n") # function for printing text
-	p.image("./images/ANNONCES-18480704-PATRIOTESAVOYARD-p4-fournitures-pour-la-garde-nationale.jpg")
+	p.image("./images/ALIMENTATION-18920827-ALPESILLUSTREES-p7-liqueur-a-la-polka.jpg")
 	p.cut() # function for cutting paper
 
 
@@ -35,5 +35,3 @@ def printFile():
 	read_file = countdown.read() # we read it
 	print(read_file) # we print what is inside
 	countdown.close() # we close the file
-
-printFile()
