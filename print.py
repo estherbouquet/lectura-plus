@@ -4,7 +4,7 @@ import random
 from datetime import date # import de l'objet date dans la bibliothèque datetime
 
 today = date.today() # on crée la date d'aujourd'hui
-monthday = today.strftime("%m%d") # et on l'enregistre sous la forme 'moisjour' pour correspondre au format des articles meteo
+monthday = today.strftime("%m%d") # et on l'enregistre sous la forme 'moisjour' <> 'MMJJ' pour correspondre au format des articles meteo
 
 # On définit le dossier où sont les articles imprimables (aka, mis en page et transformés en jpg)
 folder = './images'
@@ -59,12 +59,6 @@ def selectRandomArticle():
 def printFile():
 	
 	p = Usb(0x04b8, 0x0e28, 0) # vendor and product ID allow us to communicate with the printer
-	
-	# REGULAR PRINTING
-	
-	#p.text("hello human, i wish u a nice day\n") # function for printing text
-	#p.image("./images/ALIMENTATION-18920827-ALPESILLUSTREES-p7-liqueur-a-la-polka.jpg")
-	#p.cut() # function for cutting paper
 
 	# RANDOM PRINTING
 	
