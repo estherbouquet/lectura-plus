@@ -32,7 +32,7 @@ def layout(fullpath, input_folder, subdir):
 	output_file.write('<div class="logo">\n<img src=../assets/LogoL.png></img>\n</div>') # on insère le logo
 	output_file.write(html) # on insère le HTML converti
 	output_file.write(img_detection.returnIfCorrespondingImgFor(formatted_filename, input_folder, subdir)) # on insère ce que retourne la fonction returnIfCorrespondingImgFor
-	qrcode = "../input/" + formatted_filename + ".png" # on recrée le chemin d'accès du qrcode depuis ./input/
+	qrcode = "../input/" + formatted_filename + ".png" # on recrée le chemin d'accès vers le qrcode depuis ./input/
 	output_file.write('<div class="qrcode">\n<img src="' + qrcode + '"></img>\n</div>') # on insère le chemin d'accès du qrcode dans une balise img			
 	# on insère le texte de présentation
 	output_file.write('<div class="presentation">\n<p>Un ticket de presse ancienne proposé par Lectura Plus, le site du patrimoine écrit et graphique en Auvergne-Rhône-Alpes.</p>\n</div>')

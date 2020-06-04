@@ -1,14 +1,39 @@
 from escpos.printer import Usb # import Usb class
+import os
+import random
+
+# On définit le dossier où sont les articles imprimables (aka, mis en page et transformés en jpg)
+folder = './images'
+printableArticles = []
+
+def selectRandomArticle():
+	for subdir, dirs, files in os.walk(folder): 
+		for filename in files: 
+			fullpath = subdir + os.sep + filename  
+			printableArticles.append(fullpath) # On ajoute les articles trouvés à la liste printableArticles
+
+	lengthPrintableArticles = len(printableArticles)-1 # On cherche la taille maximale de notre liste (-1 sinon, erreur out of range)
+	randomIndex = random.randint(0, lengthPrintableArticles)
+	selectedArticle = printableArticles[randomIndex]
+
+	return selectedArticle
 
 def printFile():
-
-	# REGULAR PRINTING
-
+	
 	p = Usb(0x04b8, 0x0e28, 0) # vendor and product ID allow us to communicate with the printer
-	p.text("hello human, i wish u a nice day\n") # function for printing text
-	p.image("./images/ALIMENTATION-18920827-ALPESILLUSTREES-p7-liqueur-a-la-polka.jpg")
-	p.cut() # function for cutting paper
+	
+	# REGULAR PRINTING
+	
+	#p.text("hello human, i wish u a nice day\n") # function for printing text
+	#p.image("./images/ALIMENTATION-18920827-ALPESILLUSTREES-p7-liqueur-a-la-polka.jpg")
+	#p.cut() # function for cutting paper
 
+	# RANDOM PRINTING
+	
+	article = selectRandomArticle()
+	print(article)
+	p.image(article)
+	p.cut() # function for cutting paper
 
 	# COUNTING
 	# (for every x printings, we want a special coupon)
@@ -35,3 +60,5 @@ def printFile():
 	read_file = countdown.read() # we read it
 	print(read_file) # we print what is inside
 	countdown.close() # we close the file
+
+printFile()
