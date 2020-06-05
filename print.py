@@ -1,20 +1,13 @@
 from escpos.printer import Usb # import Usb class
+import random_article
 
-def printFile():
+# the number of prints before it prints a coupon is setup here
+limit = 10 
+# vendor and product ID allow us to communicate with the printer
+p = Usb(0x04b8, 0x0e28, 0) 
 
-	# REGULAR PRINTING
-
-	p = Usb(0x04b8, 0x0e28, 0) # vendor and product ID allow us to communicate with the printer
-	p.text("hello human, i wish u a nice day\n") # function for printing text
-	p.image("./images/ALIMENTATION-18920827-ALPESILLUSTREES-p7-liqueur-a-la-polka.jpg")
-	p.cut() # function for cutting paper
-
-
-	# COUNTING
-	# (for every x printings, we want a special coupon)
-
-	limit = 4 # the number of prints is setup here
-
+#Function that keeps track of the number of prints in countdown.txt
+def counting():
 	countdown = open("countdown.txt") # open the file "countdown.txt" and store it in countdown variable
 
 	for line in countdown: # for each line in countdown
@@ -30,8 +23,23 @@ def printFile():
 	countdown.close() # we close the file
 
 
+# Function that prints a selected article when it is called;
+# uses random_article.py and its selectRandomArticle function to pick a random article
+def printFile():
+	
+	# RANDOM PRINTING
+
+	article = random_article.selectRandomArticle()
+	p.image(article) # article is the fullpath of the selected article
+	p.cut()
+
+	# COUNTING
+	# (for every x printings, we want a special coupon)
+	counting()
+
 	# KEEPING TRACK/DEBUG
 	countdown = open("countdown.txt") # we open "countdown.txt"
 	read_file = countdown.read() # we read it
-	print(read_file) # we print what is inside
+	print("countdown: "+read_file) # we print what is inside
 	countdown.close() # we close the file
+
