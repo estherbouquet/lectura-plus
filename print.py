@@ -28,7 +28,6 @@ def counting():
 def printFile():
 	
 	# RANDOM PRINTING
-
 	article = random_article.selectRandomArticle()
 	p.image(article) # article is the fullpath of the selected article
 	p.cut()
@@ -42,4 +41,3 @@ def printFile():
 	read_file = countdown.read() # we read it
 	print("countdown: "+read_file) # we print what is inside
 	countdown.close() # we close the file
-

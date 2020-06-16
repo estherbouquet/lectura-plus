@@ -1,5 +1,11 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 body{
-  width: 600px;
+  width: 576px;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {

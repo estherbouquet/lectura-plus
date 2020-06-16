@@ -17,7 +17,7 @@ try: # Essaie d'exécuter ce code...
 	while True:
 		button_state = GPIO.input(23) # On lit le statut de la pin 23 et le met dans une variable (soit 1 soit 0)
 		if button_state == False: 
-			#print('button pressed')
+			#print("button pressed")
 			led.blink()
 			print.printFile() # Lance la fonction dans le fichier print.py qui lance l'impression
 		else:

@@ -7,6 +7,11 @@ import qrcodegenerator # on importe le fichier qrcodegenerator.py, ce qui nous p
 import txt_to_html # on importe le fichier txt_to_html.py, ce qui nous permet d'accéder à la fonction layout
 import led
 
+# On customise la largeur par défaut créée par wkhtmltopdf qui est de base 1024
+options = {
+    'crop-w': '576' # On veut une largeur de 576 pixels
+}
+
 # On définit le dossier où sont les fichiers (textes et images) importés
 input_folder = './input'
 
@@ -38,7 +43,6 @@ for subdir, dirs, files in os.walk('./output'): # Pour chaque chemin, dossiers e
 		outputfile = subdir + os.sep + filename # on aggrège le chemin d'accès du fichier dans ./output/ avec son nom et extension
 		jpgfile = './images/' + os.path.splitext(filename)[0] + '.jpg' # on retire .html du filename pour mettre .jpg et on ajoute le chemin vers ./images/
 		
-		imgkit.from_file(outputfile, jpgfile) # on convertit outputfile en jpgfile
+		imgkit.from_file(outputfile, jpgfile, options=options) # on convertit outputfile en jpgfile
 		#imgkit.from_file('./output/'+filename+'.html', './images/'+filename+'.jpg')
-
 led.turnOff();
