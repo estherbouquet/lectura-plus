@@ -66,6 +66,20 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
   
   if the installation worked, you should now have a tiny printed paper greeting you 🔖 otherwise, you can find more information [here (raspi doc)](https://python-escpos.readthedocs.io/en/latest/user/raspi.html), or [here (original github repo)](https://github.com/python-escpos/python-escpos).
   
+## 💻 customize print speed and density
+
+- turn the printer on while pushing the feed button
+  - it prints a test
+- press the feed button again for more than 1 sec 
+  - Mode Selection opens
+  - press shortly (<1 sec)three times the feed button and one time long (>1 sec) the feed button
+    - it opens Customize Value Settings
+      - press three times to open the density options and one time long (>1 sec) the feed button
+        - press three times to select density +2 and one time long (>1 sec) the feed button
+      - press four times to open the speeed options and one time long (>1 sec) the feed button
+        - press eleven times to select speed 11 and one time long (>1 sec) the feed button
+- turn the printer off and restart it to use it
+
 ## 💻 try the code
 
   - open your terminal
