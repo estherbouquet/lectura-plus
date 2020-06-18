@@ -84,8 +84,14 @@ All of the next steps have been developed for a raspberry pi 3 B+ running Stretc
 
   - open your terminal
   
+  - check for updates `sudo apt-get update`
+  
   - install dependencies: `sudo apt-get install python3-markdown` and `sudo apt-get install wkhtmltopdf`
 
   - install dependency `pip3 install pyqrcode` and module `pip3 install pypng`
+  
+  - clone this repository using git in ./Documents/ and your ssh key OR download it on your raspberry then unzip it and then rename it lectura-plus and cut/pastee it in ./Documents/
 
-  - install bash dependency `apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal
+  - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh`
+  
+
