@@ -5,7 +5,17 @@ this project was
   - initiated by Auvergne-Rhône-Alpes Livre et Lecture
   - created, designed and developed by Léa Belzunces, Esther Bouquet and Déborah-Loïs Séry
 
-All of the next steps have been developed for a raspberry pi 3 B+ running Stretch Version 9 and an Epson TM-T20III.
+All of the next steps have been developed for a raspberry pi 3 B+ running Stretch Version 9 and an Epson TM-T20III. The articles that you want to print needs to be .txt files. The content needs to be in markdown with the following order: 
+
+- '#' → name of the newspaper 
+- '##' → title (h1)
+- '#####' → subtitle (h2)
+- '######' → subtitle (h3)
+- '###' → text 
+- '####' → URL to the online article (to generate a qrCode)
+- '#######' → category
+
+You can link a .jpg or a .JPEG file to the .txt files (if the article contains an illustration for instance) by giving them the same name.
 
 ![how codes and components are intertwined](https://github.com/estherbouquet/lectura-plus/blob/master/electrogif.gif)
 
@@ -116,14 +126,22 @@ ET MONTRER PINS DU RASPBERRY OÙ ON CONNECTE
   - install dependency `pip3 install pyqrcode` and module `pip3 install pypng`
   
   - clone this repository using git in ./Documents/ and your ssh key OR download it on your raspberry then unzip it and then rename it lectura-plus and cut/pastee it in ./Documents/
+  - Once it is cloned, go to ./lectura-plus/
+  - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh` and `chmod u=rwx listeningForUSB.sh`
+ 
+  - if you want to check manually that the program works first before running it independently when the raspberry starts:
+    - be sure to be in the `lectura-plus` folder.
+    - write `./listeningForUSB.sh` in the terminal. It will start listening for any USB being plugged into the raspberry
+    - plug the usb drive with a folder named `articles` (inside of which you will have the articles you want to copy to the raspberry for a later print)
+      - `./listeningForUSB.sh` is now supposed to launch `./copy_from_usb.sh` (will copy the content of ./articles/ and convert it)
+        - if the led is blinking three times, it means that there is no folder named `articles` detected
+        - if the led is turning on but not blinking it means that the program is working
+          - the led will turn off when all the files are copied and converted and you will be able to unplug the usb safely
+    - open a new terminal window, go back to `./Documents/lectura-plus/`
+    - write `./listeningForPushedButton.sh` in the terminal and press the physical button whenever you feel ready
+      - the led will blink twice if the program can find articles to print through the printer
+    - whenever you want to stop/quit, just close the 2 terminal windows.
 
-  - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh`
-  
-  - if you want to launch the program so it runs independently when the raspberry starts:
+  - after you check that the program works when it is launched manually, if you still want to launch it so it runs automatically when the raspberry starts:
     - blablabla
     - blablabla
-  - if you want to launch the program when you want and still manage it by changing settings here and there:
-    - blabla
-  
-  
-
