@@ -39,6 +39,8 @@ then
 	rm -r $input_folder
 	rm -r $output_folder
 	
+	source /home/pi/Documents/lectura-plus/listeningForPushedButton.sh
+	
 else # Si usb_test n'existe pas 
 	echo "Directory ./articles/ doesn't exists!"
 	python3 -c 'from led import problem; problem()' # Lance la fonction problem() dans led.py (fait clignoter la led 3 fois)
