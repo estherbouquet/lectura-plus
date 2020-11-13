@@ -9,15 +9,16 @@ GPIO.setmode(GPIO.BCM)
 # (possibilité de communiquer via le numéro des pins directement avec)
 #GPIO.setmode(GPIO.BOARD)
 
-# Initialisation de la pin GPIO23 (bouton) et GPIO24 (LED).
+# Initialisation IN, de la pin GPIO23 (bouton) et GPIO24 (LED).
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP) # GPIO.IN -> on écoute sur la pin (INPUT) | pull_up_down=GPIO.PUD_UP -> le raspberry gère ici le pull up pour éviter de lire un input avec des interférences entre 0 et 1
 GPIO.setup(24, GPIO.OUT) # GPIO.OUT -> on envoie sur la pin (OUTPUT), ce qui allumera la LED
 
+
 try: # Essaie d'exécuter ce code...
+
 	while True:
 		button_state = GPIO.input(23) # On lit le statut de la pin 23 et le met dans une variable (soit 1 soit 0)
 		if button_state == False: 
-			#print("button pressed")
 			led.blink()
 			print.printFile() # Lance la fonction dans le fichier print.py qui lance l'impression
 		else:
@@ -25,3 +26,4 @@ try: # Essaie d'exécuter ce code...
 				
 except: # ... et si tu rencontres une erreur 
 	GPIO.cleanup() # Nettoie les ports utilisés 
+	
