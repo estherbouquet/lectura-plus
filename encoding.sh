@@ -1,10 +1,10 @@
 #!/bin/bash
 
-input_folder='/home/pi/Documents/lectura-plus/input/'
+input_folder='/home/pi/Documents/lectura-plus/input'
 
 utf="utf-8"
 
-for files in $input_folder*.txt; # for txt files in input
+for files in $input_folder/*.txt; # for txt files in input
 do
 	encoding=$(file -i "$files" | sed "s/.*charset=\(.*\)$/\1/") 
 	# -i display file's encoding
