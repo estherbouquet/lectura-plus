@@ -1,5 +1,10 @@
-body{
-  width: 600px;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  width: 570px;
 }
 
 h1 {
