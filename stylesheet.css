@@ -7,17 +7,52 @@ html, body{
   width: 570px;
 }
 
+h6 {
+  font-size:16pt;
+  font-family:"Barlow Condensed", sans-serif;
+  font-weight: medium;
+  background-color: black;
+  padding: 2em 2em;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
 h1 {
-  color: red;
+  font-size:12pt;
+  font-family:"Barlow Condensed", sans-serif;
+  font-weight: Bold;
+  text-align: center;
+  padding: 2em 2em;
+
 }
 
 h2 {
-  color: blue;
+  font-size:28pt;
+  font-family:"Barlow Condensed", sans-serif;
+  font-weight: Semi-bold;
+  text-align: center;
 }
 
-p {
-  background-color: yellow;
+h3 {
+  font-size:10pt;
+  font-family:"Inter", sans-serif;
+  text-align: justify;
 }
+
+h5 {
+  font-size:12pt;
+  font-family:"Barlow Condensed", sans-serif;
+  font-weight: Semi-bold;
+}
+
+/*
+p {
+  font-size:10pt;   
+  font-family: Inter, sans-serif;
+  font-weight: regular;
+}*/
 
 img {
   width: 100%;
@@ -30,7 +65,7 @@ h4 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100px;
+  width: 200px;
 }
 
 .logo{
@@ -39,18 +74,24 @@ h4 {
   border-radius: 150px;
   padding: 40px 61px;
   display: block;
+  margin: 1em auto;
+  /*
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto;*/
 }
 
 .presentation{
-  font-size:10pt;
+  font-size:8pt;
+  font-family: Inter, sans-serif;
+  font-weight: light;
 }
 .italic{
   font-style: italic;
 }
 .mentions{
-  font-size: 8pt;
+  font-size: 7pt;
+  font-family: Inter, sans-serif;
+  font-weight: medium;
 }
 
 .bloclogo{
@@ -60,9 +101,9 @@ h4 {
 }
 
 .bloclogo > img.gauche {
-  width: 70%;
+  width: 60%;
 }
 
 .bloclogo > img.droite {
-  width: 29%;
+  width: 39%;
 }
