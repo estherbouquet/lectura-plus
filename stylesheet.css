@@ -47,12 +47,14 @@ h5 {
   font-weight: Semi-bold;
 }
 
-/*
+
 p {
   font-size:10pt;   
   font-family: Inter, sans-serif;
   font-weight: regular;
-}*/
+  font-family:"Inter", sans-serif;
+  text-align: justify;
+}
 
 img {
   width: 100%;
