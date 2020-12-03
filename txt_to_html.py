@@ -32,16 +32,21 @@ def layout(fullpath, input_folder, subdir):
 	output_file.write(html) # on insère le HTML converti
 	output_file.write(img_detection.returnIfCorrespondingImgFor(formatted_filename, input_folder, subdir)) # on insère ce que retourne la fonction returnIfCorrespondingImgFor	
 	# on insère le texte de présentation
-	output_file.write('<div class="presentation">\n<p>Un ticket de presse ancienne proposé par Lectura Plus, le site du patrimoine écrit et graphique en Auvergne-Rhône-Alpes.</p>\n</div>')
-	output_file.write('<div class="presentation">\n<p>À lire dans la minute ! Pour plus de découvertes, rendez-vous sur www.lectura.plus</p>\n</div>')
+	output_file.write('<div class="presentation">\n<p>Un ticket de presse ancienne proposé par Lectura Plus, le site du patrimoine écrit et graphique en Auvergne-Rhône-Alpes.<br><strong>À lire dans la minute !</strong> Pour plus de découvertes, rendez-vous sur www.lectura.plus</p>\n</div>')
 	output_file.write('<div class="presentation italic">\n<p>Ticket lecteur à conserver - ne pas jeter sur la voie publique</p>\n</div>')
+	output_file.write('<div class="blocplus">\n<img src="../assets/element-graphique-plus.png"></img>\n</div>') # on insère l'élément graphisme plus
 	output_file.write('<div class="logo">\n<img src=../assets/LogoL.png></img>\n</div>') # on insère le logo
+	output_file.write('<div class="blocplus">\n<img src="../assets/element-graphique-plus.png"></img>\n</div>')
+	
 	# et les mentions légales
 	output_file.write('<div class="mentions">\n<p>Lectura PLus est un projet coopératif des Villes et Agglomérations d\'Annecy, Bourg-en-Bresse, Chambéry, Clermont-Ferrand, Grenoble, Lyon, Roanne, Saint-Étienne et Valence, réalisé avec le soutien de la DRAC Auvergne-Rhône-Alpes et coordonné par par Auvergne-Rhône-Alpes Livre et Lecture.</p>\n</div>')
 	output_file.write('<div class="mentions">\n<p>Un projet imaginé et coordonné par Alizé Buisse et Priscille Legros. Dispositif numérique conçu par Léa Belzunces et Esther Bouquet. Conception graphique menée par Déborah-Loïs Séry. Fabrication artisanale par Guillaume Buisson, Atelier Regards</p>\n</div>')
 
 	# et le bloc logos
-	output_file.write('<div class="bloclogo">\n<img class="gauche" src=../assets/bloc-3logos-2020-compact-noir.jpg></img>\n<img class="droite" src=../assets/PREF_region_Auvergne_Rhone_Alpes_N.png></img>\n</div>')
+	output_file.write('<div class="blocplus">\n<img src="../assets/element-graphique-plus.png"></img>\n</div>')
+	output_file.write('<div class="bloclogo">\n<img src="../assets/bloc-logo-complet.jpg"></img>\n</div>')
+	output_file.write('<div class="blocplus">\n<img src="../assets/element-graphique-plus.png"></img>\n</div>')
+	
 	# et le QRcode
 	qrcode = "../input/" + formatted_filename + ".png" # on recrée le chemin d'accès vers le qrcode depuis ./input/
 	output_file.write('<div class="qrcode">\n<img src="' + qrcode + '"></img>\n</div>') # on insère le chemin d'accès du qrcode dans une balise img

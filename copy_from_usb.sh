@@ -7,8 +7,8 @@
 if [ -d "/home/pi/Documents/lectura-plus/articles" ] # Si le dossier /articles existe dans lectura-plus
 then 
 	echo "Directory ./articles/ exists!"
-	#usb='/media/pi/KEVCHA/articles/*'
-	usb='/home/pi/Documents/lectura-plus/articles/*'
+	usb='/media/pi/KEVCHA/articles/*'
+	#usb='/home/pi/Documents/lectura-plus/articles/*'
 	# On crée les trois dossiers
 	#mkdir '/Users/leabelzunces/code/lectura-plus/input'
 	#mkdir '/Users/leabelzunces/code/lectura-plus/output'
@@ -38,7 +38,7 @@ then
 
 	# On supprime les dossiers input et output
 	rm -r $input_folder
-	# rm -r $output_folder
+	rm -r $output_folder
 	
 	source /home/pi/Documents/lectura-plus/listeningForPushedButton.sh
 	
