@@ -2,9 +2,12 @@ import pyqrcode
 import os
 
 def createQrCode(urlstr, filenameURL):
-	url = pyqrcode.create(urlstr) # On crée un qrcode avec l'url d'encodée
-	url.png('./input/'+filenameURL+'.png', scale=5) # On l'enregistre dans input sous nomformaté.png
+	url = pyqrcode.create(urlstr, 'M', 10, None, None) # On crée un qrcode avec l'url d'encodée
+	url.png('./input/'+filenameURL+'.png', scale=1) # On l'enregistre dans input sous nomformaté.png
 	#print(url.terminal(quiet_zone=1)) # debug pour afficher le qrcode dans terminal
+	
+	
+	
 
 def extractURL(myfile, filename):# On récupère comme argument le fichier et le nom du fichier
 	formatted_filename = os.path.splitext(filename)[0] # On formate le nom du fichier pour pouvoir nommer notre qrcode de la même façon avec extension différente
