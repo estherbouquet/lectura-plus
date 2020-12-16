@@ -26,6 +26,8 @@ def createHeader(currentFile, dateFromFile):
 	
 	motifdate = ", (.*?) \(" # idem que pour le tag
 	date = re.search(motifdate, dateFromFile).group(1)
+	date = date.replace(',', '')
+	date = date.replace('1er', '1<sup>er</sup>') #er en exposant si '1er' détecté
 	#print("date : "+date) #debug
 	
 	divEntete = '<div class="entete">\n<p class="tag">'+tag+'</p>\n<p class="date">'+date+'</p>\n</div>'

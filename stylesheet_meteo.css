@@ -21,16 +21,15 @@ h1 {
     font-size: 52pt;
     font-family: "Barlow Condensed semibold", sans-serif;
     text-align: center;
-    padding: 1em 1em 0em 1em;
+    padding: 0.05em 1em;
     line-height: 0.9;
-    color: white;
 }
 
 h2 {
     font-size: 28pt;
     font-family: "Barlow Condensed semibold", sans-serif;
     text-align: center;
-    margin: 1em 1em;
+    margin: 1em 1em 0.05em 1em;
 }
 
 h3 {
@@ -40,9 +39,13 @@ h3 {
   padding: 20px 0px;
 }
 
+sub{
+    font-size: 15pt; 
+}
+
 p {
     font-size: 20pt;
-    font-family: "Inter regular";
+    font-family: "Inter medium";
     font-weight: normal;
     text-align: justify;
     line-height: 1.3em;
@@ -51,14 +54,15 @@ p {
 }
 
 .ticket > p, .italic > p {
-    font-family: "Inter light";
+    font-family: "Inter regular";
     margin: 1em 0em;
-    font-size: 14pt;
+    font-size: 16pt;
     line-height: 1.18em;
+    letter-spacing: 1.5px;
 }
 
 .italic > p {
-    font-family: "Inter light-italic";
+    font-family: "Inter regular-italic";
 }
 
 em{
@@ -79,7 +83,7 @@ h4 {
   margin-left: auto;
   margin-right: auto;
   width: 200px;
-  padding: 10px;
+  padding: 10px 10px 50px 10px;
   background-color: white;
 }
 
@@ -97,13 +101,13 @@ h4 {
 
 .mentions > p {
   font-family: "Inter medium";
-  font-size: 12pt;
+  font-size: 14pt;
+  letter-spacing: 1.5px;
 }
 
 .bloclogo{
   /*margin-top: 5em;*/
   width: 100%;
-  filter: invert(1);
 }
 
 /*
@@ -119,7 +123,31 @@ h4 {
 .blocplus {
   margin: 20px 0px;
   padding: 15px 10px;
-  filter: invert(1);
+}
+
+.entete{
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.tag {
+    font-family: "Barlow Condensed semibold";
+    color: black;
+    text-align: center;
+    font-size: 30pt;
+    padding: 15px 0 0 0;
+    letter-spacing: 0.5px;
+}
+
+.date{
+    text-align: center;
+    font-family: Barlow Condensed regular;
+    color: black;
+    margin-top: -25px;
+    font-size: 27pt;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 @font-face {

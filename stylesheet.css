@@ -19,7 +19,7 @@ h1 {
     font-size: 52pt;
     font-family: "Barlow Condensed semibold", sans-serif;
     text-align: center;
-    padding: 1em 1em 0em 1em;
+    padding: 0.05em 1em;
     line-height: 0.9;
 }
 
@@ -27,7 +27,7 @@ h2 {
     font-size: 28pt;
     font-family: "Barlow Condensed semibold", sans-serif;
     text-align: center;
-    margin: 1em 1em;
+    margin: 1em 1em 0.05em 1em;
 }
 
 h3 {
@@ -35,6 +35,10 @@ h3 {
   font-family:"Inter regular", sans-serif;
   text-align: justify;
   padding: 20px 0px;
+}
+
+sub{
+    font-size: 15pt; 
 }
 
 p {
@@ -88,7 +92,30 @@ h4 {
   margin: 1em auto;
 }
 
+.entete{
+  background-color: black;
+  margin: 0 10px 10px 10px;
+}
 
+.tag {
+    font-family: "Barlow Condensed semibold";
+    color: white;
+    text-align: center;
+    font-size: 30pt;
+    padding: 15px 0 0 0;
+    letter-spacing: 0.5px;
+}
+
+.date{
+    text-align: center;
+    font-family: Barlow Condensed regular;
+    color: white;
+    margin-top: -25px;
+    font-size: 27pt;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+}
 
 .mentions > p {
   font-family: "Inter medium";
@@ -114,6 +141,7 @@ h4 {
   margin: 20px 0px;
   padding: 15px 10px;
 }
+
 
 @font-face {
   font-family : "Barlow Condensed light";
