@@ -46,7 +46,7 @@ You can link a .jpg or a .JPEG file to the .txt files (if the article contains a
   - restart `udev` with the command `sudo udevadm control --reload` (or) `sudo service udev restart`
   - reboot your raspberry
 
-## 📠 test your installation
+## 📠 test your printer <> raspberry connection
 
   - open your terminal
   
