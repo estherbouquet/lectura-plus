@@ -7,21 +7,71 @@ html, body{
   width: 570px;
 }
 
+h6 {
+  font-size:20pt;
+  font-family:"Barlow Condensed semibold", sans-serif;
+  padding: 0 20px;
+  text-align: center;
+}
+
+
 h1 {
-  color: red;
+    font-size: 52pt;
+    font-family: "Barlow Condensed semibold", sans-serif;
+    text-align: center;
+    padding: 0.05em 1em;
+    line-height: 0.9;
 }
 
 h2 {
-  color: blue;
+    font-size: 28pt;
+    font-family: "Barlow Condensed semibold", sans-serif;
+    text-align: center;
+    margin: 1em 1em 0.05em 1em;
+}
+
+h3 {
+  font-size:24pt;
+  font-family:"Inter regular", sans-serif;
+  text-align: justify;
+  padding: 20px 0px;
+}
+
+sub{
+    font-size: 15pt; 
 }
 
 p {
-  background-color: yellow;
+    font-size: 20pt;
+    font-family: "Inter regular";
+    font-weight: normal;
+    text-align: justify;
+    line-height: 1.3em;
+    margin-bottom: 0.6em;
+    padding: 0 10px;
+}
+
+.ticket > p, .italic > p {
+    font-family: "Inter light";
+    margin: 1em 0em;
+    font-size: 14pt;
+    line-height: 1.18em;
+
+}
+
+.italic > p {
+    font-family: "Inter light-italic";
+}
+
+em{
+ font-family:"Inter regular-italic";
 }
 
 img {
   width: 100%;
-}
+} 
+
+ 
 h4 {
   display: none;
 }
@@ -30,39 +80,111 @@ h4 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100px;
+  width: 200px;
 }
 
-.logo{
+.logoL{
   width: 60px;
-  border: 1px black solid;
+  border: 2px black solid;
   border-radius: 150px;
   padding: 40px 61px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1em auto;
 }
 
-.presentation{
-  font-size:10pt;
+.entete{
+  background-color: black;
+  margin: 0 10px 10px 10px;
 }
-.italic{
-  font-style: italic;
+
+.tag {
+    font-family: "Barlow Condensed semibold";
+    color: white;
+    text-align: center;
+    font-size: 30pt;
+    padding: 15px 0 0 0;
+    letter-spacing: 0.5px;
 }
-.mentions{
-  font-size: 8pt;
+
+.date{
+    text-align: center;
+    font-family: Barlow Condensed regular;
+    color: white;
+    margin-top: -25px;
+    font-size: 27pt;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.mentions > p {
+  font-family: "Inter medium";
+  font-size: 12pt;
 }
 
 .bloclogo{
-  margin-top: 5em;
-  position: relative;
+  /*margin-top: 5em;*/
   width: 100%;
 }
 
+/*
 .bloclogo > img.gauche {
-  width: 70%;
+  width: 60%;
 }
 
 .bloclogo > img.droite {
-  width: 29%;
+  width: 39%;
+}
+*/
+
+.blocplus {
+  margin: 20px 0px;
+  padding: 15px 10px;
+}
+
+
+@font-face {
+  font-family : "Barlow Condensed light";
+  src : url('/home/pi/.fonts/BarlowCondensed-Light.ttf');  
+}
+
+@font-face {
+  font-family : "Barlow Condensed regular";
+  src : url('/home/pi/.fonts/BarlowCondensed-Regular.ttf');  
+}
+
+@font-face {
+  font-family : "Barlow Condensed medium";
+  src : url('/home/pi/.fonts/BarlowCondensed-Medium.ttf');  
+}
+
+@font-face {
+  font-family : "Barlow Condensed semibold";
+  src : url('/home/pi/.fonts/BarlowCondensed-SemiBold.ttf');  
+}
+
+
+@font-face {
+  font-family : "Inter light";
+  src : url('/home/pi/.fonts/Inter-Light-slnt=0.ttf');  
+}
+
+@font-face {
+  font-family : "Inter light-italic";
+  src : url('/home/pi/.fonts/Inter-LightItalic.otf');  
+}
+
+@font-face {
+  font-family : "Inter regular";
+  src : url('/home/pi/.fonts/Inter-Regular-slnt=0.ttf');  
+}
+
+@font-face {
+  font-family : "Inter regular-italic";
+  src : url('/home/pi/.fonts/Inter-Italic.otf');  
+}
+
+@font-face {
+  font-family : "Inter medium";
+  src : url('/home/pi/.fonts/Inter-Medium-slnt=0.ttf');  
 }

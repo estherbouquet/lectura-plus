@@ -38,7 +38,7 @@ def selectRandomArticle():
 		count = int(line) # on récupère le chiffre (qui est en str) et on le transforme en int pour le sauvegarder dans count
 		
 		# Si la division (count / 5) a un reste = 0, alors :
-		if (count % 5 == 0):  
+		if (count % 10 == 0):  
 			for article in meteoArticles: # pour chaque article météo dans la liste
 				# debug - - -
 				#print(monthday) # on vérifie la valeur de monthday 
