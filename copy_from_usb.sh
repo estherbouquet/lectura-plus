@@ -38,7 +38,7 @@ then
 
 	# On supprime les dossiers input et output
 	rm -r $input_folder
-	#rm -r $output_folder
+	rm -r $output_folder
 	
 	#source /home/pi/Documents/lectura-plus/listeningForPushedButton.sh
 	

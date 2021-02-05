@@ -54,7 +54,7 @@ p {
 }
 
 .ticket > p, .italic > p {
-    font-family: "Inter regular";
+    font-family: "Inter medium";
     margin: 1em 0em;
     font-size: 16pt;
     line-height: 1.18em;
@@ -62,7 +62,7 @@ p {
 }
 
 .italic > p {
-    font-family: "Inter regular-italic";
+    font-family: "Inter medium-italic";
 }
 
 em{
@@ -82,8 +82,9 @@ h4 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 40px;
   width: 200px;
-  padding: 10px 10px 50px 10px;
+  padding: 10px 10px 10px 10px;
   background-color: white;
 }
 
@@ -101,7 +102,7 @@ h4 {
 
 .mentions > p {
   font-family: "Inter medium";
-  font-size: 14pt;
+  font-size: 16pt;
   letter-spacing: 1.5px;
 }
 
@@ -128,6 +129,9 @@ h4 {
 .entete{
   background-color: white;
   margin-bottom: 10px;
+  margin-top:40px;
+  width: 577px;
+
 }
 
 .tag {
@@ -194,4 +198,9 @@ h4 {
 @font-face {
   font-family : "Inter medium";
   src : url('/home/pi/.fonts/Inter-Medium-slnt=0.ttf');  
+}
+
+@font-face {
+  font-family : "Inter medium-italic";
+  src : url('/home/pi/.fonts/Inter-MediumItalic.otf');  
 }
