@@ -21,6 +21,7 @@ def createHeader(currentFile, dateFromFile):
 	motiftag = "./input/(.*?)-" # On cherche le motif du tag compris entre './input/' et '-' qui le sépare de la date
 	tag = re.search(motiftag, currentFile).group(1) # On sélectionne uniquement la string sans les délimitateurs qu'il y a autour grâce au 1
 	#print("tag : "+tag) #debug
+	tag = tag.replace('PETITESANNONCES', 'PETITES ANNONCES')
 	tag = tag.replace('FAITDIVERS', 'FAIT DIVERS') # Si le tag est FAITDIVERS, on remplace par "fait divers"
 	#print(tag) #ça marche !!
 	
@@ -49,6 +50,7 @@ def rearrangeMardownOrder(myfile):
 	data = fin.read() # On le relit (avec la nouvelle ligne en haut du coup)
 	
 	# On stocke dans data les nouveaux changements de markdown sans que ça change le texte du fichier initial
+	
 	data = data.replace('\n### ', '\n') # on change h3 en p
 	data = data.replace('\n###### ', '\n### ') # on change h6 en h3
 	data = data.replace('\n# ', '\n###### ') # on change h1 en h6 (titre du journal)
