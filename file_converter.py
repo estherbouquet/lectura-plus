@@ -45,4 +45,5 @@ for subdir, dirs, files in os.walk('./output'): # Pour chaque chemin, dossiers e
 		
 		imgkit.from_file(outputfile, jpgfile, options=options) # on convertit outputfile en jpgfile
 		#imgkit.from_file('./output/'+filename+'.html', './images/'+filename+'.jpg')
+
 led.turnOff();

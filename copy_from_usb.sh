@@ -7,8 +7,8 @@
 if [ -d "/home/pi/Documents/lectura-plus/articles" ] # Si le dossier /articles existe dans lectura-plus
 then 
 	echo "Directory ./articles/ exists!"
-	#usb='/media/pi/KEVCHA/articles/*'
-	usb='/home/pi/Documents/lectura-plus/articles/*'
+	usb='/media/pi/KEVCHA/articles/*'
+	#usb='/home/pi/Documents/lectura-plus/articles/*'
 	# On crée les trois dossiers
 	#mkdir '/Users/leabelzunces/code/lectura-plus/input'
 	#mkdir '/Users/leabelzunces/code/lectura-plus/output'
@@ -29,7 +29,10 @@ then
 
 	# On copie récursivement les fichiers de la clé usb dans le dossier input
 	cp -r $usb $input_folder
-
+	
+	#On corrige les noms de fichiers qui contiennent des espaces 
+	python3 rename_bad_filenames.py
+	
 	#On réencode les fichiers txt qui ne sont pas encodés en utf-8 en appelant le script encoding.sh
 	source /home/pi/Documents/lectura-plus/encoding.sh
 

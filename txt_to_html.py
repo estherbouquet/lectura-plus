@@ -68,8 +68,8 @@ def layout(fullpath, input_folder, subdir):
 		output_file.write('<div class="blocplus">\n<img src="../assets/element-plus-ok.png"></img>\n</div>') # ligne + + + + +
 	
 	# et les mentions légales
-	output_file.write('<div class="mentions">\n<p>Lectura Plus est un projet coopératif des Villes et Agglomérations d\'Annecy, Bourg-en-Bresse, Chambéry, Clermont-Ferrand, Grenoble, Lyon, Roanne, Saint-Étienne et Valence, réalisé avec le soutien de la DRAC Auvergne-Rhône-Alpes et coordonné par par Auvergne-Rhône-Alpes Livre et Lecture.</p>\n</div>')
-	output_file.write('<div class="mentions">\n<p>Un projet imaginé et coordonné par Alizé Buisse et Priscille Legros. Dispositif numérique conçu par Léa Belzunces et Esther Bouquet. Conception graphique menée par Déborah-Loïs Séry. Fabrication artisanale par Guillaume Buisson, Atelier Regards</p>\n</div>')
+	output_file.write('<div class="mentions">\n<p>Lectura Plus est un projet coopératif des Villes et Agglomérations d\'Annecy, Bourg-en-Bresse, Chambéry, Clermont-Ferrand, Grenoble, Lyon, Roanne, Saint-Étienne et Valence, réalisé avec le soutien de la DRAC Auvergne-Rhône-Alpes et coordonné par Auvergne-Rhône-Alpes Livre et Lecture.</p>\n</div>')
+	output_file.write('<div class="mentions">\n<p>Un projet imaginé et coordonné par Alizé Buisse et Priscille Legros, Auvergne-Rhône-Alpes Livre et Lecture. Dispositif numérique conçu par Léa Belzunces et Esther Bouquet. Conception graphique menée par Déborah-Loïs Séry. Fabrication artisanale par Guillaume Buisson, Atelier Regards.</p>\n</div>')
 
 	# et le bloc logos
 	if formatted_filename.startswith("METEO"):
