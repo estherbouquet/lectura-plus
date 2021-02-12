@@ -127,7 +127,7 @@ ET MONTRER PINS DU RASPBERRY OÙ ON CONNECTE
   
   - clone this repository using git in ./Documents/ and your ssh key OR download it on your raspberry then unzip it and then rename it lectura-plus and cut/pastee it in ./Documents/
   - Once it is cloned, go to ./lectura-plus/
-  - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh` and `chmod u=rwx listeningForUSB.sh`
+  - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh` and `chmod u=rwx listeningForUSB.sh` and finally `chmod u=rwx delete_from_usb.sh`
  
   - if you want to check manually that the program works first before running it independently when the raspberry starts:
     - be sure to be in the `lectura-plus` folder.
