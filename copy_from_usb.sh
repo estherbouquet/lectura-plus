@@ -1,13 +1,9 @@
 #!/bin/bash
 
-# Mettre tous les fichiers dans un sous dossier de la clé usb (genre /articles)
-
-# usb_folder=/media/NOM_USB/lectura
-
-if [ -d "/home/pi/Documents/lectura-plus/articles" ] # Si le dossier /articles existe dans lectura-plus
+if [ -d "/media/pi/AJOUT/articles" ] # Si le dossier /articles existe sur la clé AJOUT
 then 
 	echo "Directory ./articles/ exists!"
-	usb='/media/pi/KEVCHA/articles/*'
+	usb='/media/pi/AJOUT/articles/*'
 	#usb='/home/pi/Documents/lectura-plus/articles/*'
 	# On crée les trois dossiers
 	#mkdir '/Users/leabelzunces/code/lectura-plus/input'
