@@ -15,13 +15,11 @@ options = {
 # On définit le dossier où sont les fichiers (textes et images) importés
 input_folder = './input'
 
-# A- On allume la led
-led.turnOn();
 
-# B- On s'occupe des fichiers jpg et JPG 
+# A- On s'occupe des fichiers jpg et JPG 
 img_detection.findImg(input_folder) # fonction findImg qui détecte + stocke dans des listes les images trouvées dans le dossier ./input/ + subdir
 
-# C- On s'occupe des fichiers .txt
+# B- On s'occupe des fichiers .txt
 for subdir, dirs, files in os.walk(input_folder): # Pour chaque chemin, dossiers et fichiers dans ./input_folder
 	for filename in files: # et pour chaque nom de fichier pour chaque fichier
 		fullpath = subdir + os.sep + filename # on enregistre le chemin du fichier, son nom et son extension dans une variable de type str 
@@ -36,7 +34,7 @@ for subdir, dirs, files in os.walk(input_folder): # Pour chaque chemin, dossiers
 			# 2- On convertit 'input/filename.txt' > 'output/filename.html'
 			txt_to_html.layout(fullpath, input_folder, subdir)
 
-# D- On s'occupe ensuite de convertir /output/*.html en ./images/*.jpg
+# C- On s'occupe ensuite de convertir /output/*.html en ./images/*.jpg
 for subdir, dirs, files in os.walk('./output'): # Pour chaque chemin, dossiers et fichiers dans ./output/
 	for filename in files: # et pour chaque nom de fichier
 		
@@ -46,4 +44,3 @@ for subdir, dirs, files in os.walk('./output'): # Pour chaque chemin, dossiers e
 		imgkit.from_file(outputfile, jpgfile, options=options) # on convertit outputfile en jpgfile
 		#imgkit.from_file('./output/'+filename+'.html', './images/'+filename+'.jpg')
 
-led.turnOff();

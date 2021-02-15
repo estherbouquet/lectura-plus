@@ -23,6 +23,8 @@ then
 	output_folder='/home/pi/Documents/lectura-plus/output/'
 	images_folder='home/pi/Documents/lectura-plus/images/'
 
+	python3 -c 'from led import turnOnGreen; turnOnGreen()' #Allume la led verte au début de la copie et pendant l'encoding
+	
 	# On copie récursivement les fichiers de la clé usb dans le dossier input
 	cp -r $usb $input_folder
 	
@@ -32,8 +34,15 @@ then
 	#On réencode les fichiers txt qui ne sont pas encodés en utf-8 en appelant le script encoding.sh
 	source /home/pi/Documents/lectura-plus/encoding.sh
 
+	python3 -c 'from led import turnOnBlue; turnOnBlue()' #Allume la led blue au début de la conversion txt>HTML>images
+
 	# On exécute le script python qui convertit les fichiers du dossier input en HTML dans ./output puis en jpg dans ./images
 	python3 file_converter.py
+	
+	python3 -c 'from led import turnOffGreen; turnOffGreen()' #Eteint la led verte 
+	python3 -c 'from led import turnOffBlue; turnOffBlue()' # et la led bleue à la fin de la conversion
+	python3 -c 'from led import tranferEnded; tranferEnded()' # transfert terminé avec succès
+	python3 -c 'from led import cleanLed; cleanLed()' # On nettoie les ports utilisés par les leds
 
 	# On supprime les dossiers input et output
 	rm -r $input_folder
@@ -41,7 +50,7 @@ then
 	
 	#source /home/pi/Documents/lectura-plus/listeningForPushedButton.sh
 	
-else # Si usb_test n'existe pas 
+else # Si le dossier articles sur AJOUT n'existe pas 
 	echo "Directory ./articles/ doesn't exists!"
-	python3 -c 'from led import problem; problem()' # Lance la fonction problem() dans led.py (fait clignoter la led 3 fois)
+	python3 -c 'from led import errDirMissing; errDirMissing()' # Lance la fonction errDirMissing() dans led.py (fait clignoter la led rouge)
 fi
