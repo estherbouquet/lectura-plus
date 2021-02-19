@@ -125,7 +125,7 @@ ET MONTRER PINS DU RASPBERRY OÙ ON CONNECTE
 
   - install dependency `pip3 install pyqrcode` and module `pip3 install pypng`
   
-  - clone this repository using git in ./Documents/ and your ssh key OR download it on your raspberry then unzip it and then rename it lectura-plus and cut/pastee it in ./Documents/
+  - clone this repository using git in ./Documents/ and your ssh key OR download it on your raspberry in ./Documents/ with `git clone https://github.com/estherbouquet/lectura-plus`
   - Once it is cloned, go to ./lectura-plus/
   - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh` and `chmod u=rwx listeningForUSB.sh` and finally `chmod u=rwx delete_from_usb.sh`
  
