@@ -129,9 +129,15 @@ ET MONTRER PINS DU RASPBERRY OÙ ON CONNECTE
   - Once it is cloned, go to ./lectura-plus/
   - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh` and `chmod u=rwx copy_from_usb.sh` and finally `chmod u=rwx delete_from_usb.sh`
  
+- Render the fonts in the output result:
+    - open the file explorer and go to `home/pi`
+    - create a new folder named `.fonts`
+    - make it visible with `ctrl+h`
+    - copy the fonts in `home/pi/Documents/lectura-plus/assets/` to `home/pi/Documents/.fonts`.
+ 
   - if you want to check manually that the program works first before running it independently when the raspberry starts:
     - be sure to be in the `lectura-plus` folder.
-    - write `python3 listeningForUSB` in the terminal. It will start listening for a USB named 'ajout' being plugged into the raspberry
+    - write `python3 listeningForUSB.py` in the terminal. It will start listening for a USB named 'ajout' being plugged into the raspberry
     - plug the usb drive with a folder named `articles` (inside of which you will have the articles you want to copy to the raspberry for a later print)
       - `python3 listeningForUSB.py` is now supposed to launch `./copy_from_usb.sh` (will copy the content of ./articles/ and convert it)
         - if the red led is blinking eight times quickly, it means that there is no folder named `articles` detected
@@ -147,8 +153,4 @@ ET MONTRER PINS DU RASPBERRY OÙ ON CONNECTE
     - blablabla
     - blablabla
 
-Add the font files to the CSS and to the output result
-- open the file explorer and go to `home/pi`
-- create a new folder named `.fonts`
-- make it visible with `ctrl+h`
-- copy the fonts in `home/pi/Documents/lectura-plus/assets/` to `home/pi/Documents/.fonts`
+
