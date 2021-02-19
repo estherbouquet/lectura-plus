@@ -165,6 +165,7 @@ We are going to start by creating `.service` files because we are going to use `
 - `sudo systemctl start printer.service`
 - you can check the status of the service (i.e. if it works) by typing `systemctl status printer.service` (and use `ctrl + c` to exit)
   - if it works correctly, a green "active" should appear
+  - you can use `sudo journalctl -u printer.service` to log errors
   - you can try to press the button. The blue led should blink twice and the printer print
   - if no errors are raised in the status mode when you push the button, it means that the program is working. Congrats!
  - now, we can enable the service so it will run our program as soon as the raspberry boots. To do so:
