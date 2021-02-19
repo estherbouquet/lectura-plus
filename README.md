@@ -131,12 +131,13 @@ ET MONTRER PINS DU RASPBERRY OÙ ON CONNECTE
  
   - if you want to check manually that the program works first before running it independently when the raspberry starts:
     - be sure to be in the `lectura-plus` folder.
-    - write `./listeningForUSB.sh` in the terminal. It will start listening for any USB being plugged into the raspberry
+    - write `python3 listeningForUSB` in the terminal. It will start listening for a USB named 'ajout' being plugged into the raspberry
     - plug the usb drive with a folder named `articles` (inside of which you will have the articles you want to copy to the raspberry for a later print)
-      - `./listeningForUSB.sh` is now supposed to launch `./copy_from_usb.sh` (will copy the content of ./articles/ and convert it)
-        - if the led is blinking three times, it means that there is no folder named `articles` detected
-        - if the led is turning on but not blinking it means that the program is working
-          - the led will turn off when all the files are copied and converted and you will be able to unplug the usb safely
+      - `python3 listeningForUSB.py` is now supposed to launch `./copy_from_usb.sh` (will copy the content of ./articles/ and convert it)
+        - if the red led is blinking eight times quickly, it means that there is no folder named `articles` detected
+        - if the green led is turning on it means that the program is working
+          - the blue led will turn on when all the files are copied (you can remove safely your usb at this moment)
+          - when the conversion is done, the green and blue led will turn off and the green led will blink one last time
     - open a new terminal window, go back to `./Documents/lectura-plus/`
     - write `./listeningForPushedButton.sh` in the terminal and press the physical button whenever you feel ready
       - the led will blink twice if the program can find articles to print through the printer
@@ -145,3 +146,9 @@ ET MONTRER PINS DU RASPBERRY OÙ ON CONNECTE
   - after you check that the program works when it is launched manually, if you still want to launch it so it runs automatically when the raspberry starts:
     - blablabla
     - blablabla
+
+Add the font files to the CSS and to the output result
+- open the file explorer and go to `home/pi`
+- create a new folder named `.fonts`
+- make it visible with `ctrl+h`
+- copy the fonts in `home/pi/Documents/lectura-plus/assets/` to `home/pi/Documents/.fonts`
