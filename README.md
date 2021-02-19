@@ -39,7 +39,7 @@ You can link a .jpg or a .JPEG file to the .txt files (if the article contains a
     - write `SUBSYSTEM=="usb", ATTRS{idVendor}=="04b8", ATTRS{idProduct}=="0e28", MODE="0664", GROUP="dialout"` where you replace `04b8` and `0e28` by your own ID
     
   - use the `groups` command line to check which groups you're part of
-    - and add yourself to the `dialout` group if you're not. <br>
+    - and add your username to the `dialout` group if you're not. <br>
       `echo $USER` <br>
       `sudo adduser $USER dialout` where `$USER` is the name that appeared when you did the previous command
       
