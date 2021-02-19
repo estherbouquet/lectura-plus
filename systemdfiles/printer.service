@@ -1,0 +1,13 @@
+[Unit]
+Description=Attend que quelqu'un appuie sur le bouton
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/Documents/lectura-plus
+ExecStart=/bin/bash /home/pi/Documents/lectura-plus/listeningForPushedButton.sh
+StandardOutput=inherit
+StandardError=inherit
+
+[Install]
+WantedBy=multi-user.target
