@@ -150,8 +150,24 @@ ET MONTRER PINS DU RASPBERRY OÙ ON CONNECTE
       - the led will blink twice if the program can find articles to print through the printer
     - whenever you want to stop/quit, just close the 2 terminal windows.
 
-  - after you check that the program works when it is launched manually, if you still want to launch it so it runs automatically when the raspberry starts:
-    - blablabla
-    - blablabla
+  - after you have checked that the two programs work when they are launched manually, you can run them automatically when the raspberry starts following the instructions below.
 
+## 💻 automatize!
 
+It is important that you check if your programs run flowlessly when you launch them manually before starting automatizing them. 
+We are going to start by creating `.service` files because we are going to use `systemd`.
+
+- Do `cd /etc/systemd/system`
+- `sudo nano printer.service`
+  - copy paste the content of `printer.service` that you can find in the `/home/pi/Documents/lectura-plus/systemdfiles` folder inside
+  - `ctrl + o` to write then press `enter` to valid the modifications then `ctrl + x` to exit
+  - you can check if it worked by using the command `cat printer.service`
+- `sudo systemctl start printer.service`
+- you can check the status of the service (i.e. if it works) by typing `systemctl status printer.service` (and use `ctrl + c` to exit)
+  - if it works correctly, a green "active" should appear
+  - you can try to press the button. The blue led should blink twice and the printer print
+  - if no errors are raised in the status mode when you push the button, it means that the program is working. Congrats!
+ - now, we can enable the service so it will run our program as soon as the raspberry boots. To do so:
+  - `sudo systemctl enable printer.service`
+  - `sudo reboot` and try to press the button when the raspberry starts up!
+  - Know that if one day you want to disable the `printer.service`, nothing simpler than `sudo systemctl disable printer.service`
