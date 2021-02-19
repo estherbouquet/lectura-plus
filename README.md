@@ -26,8 +26,9 @@ You can link a .jpg or a .JPEG file to the .txt files (if the article contains a
   
   - install dependencies: `sudo apt-get install python3 python3-setuptools python3-pip libjpeg8-dev`
   
-  - write `pip3 install python-escpos`
+  - write `sudo pip3 install python-escpos`
     - if you have a MemoryError, try to run `pip3` with `--no-cache-dir` such as `pip3 --no-cache-dir install python-escpos` but you should not need it
+    - NB: sudo is very important if you want to run your script with systemd, otherwise you can't communicate to the usb with the root priviledge
     
   - plug the usb cable of the thermal printer into the raspberry and turn the thermal printer on
 
