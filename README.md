@@ -5,7 +5,7 @@ this project was
   - initiated by Auvergne-Rhône-Alpes Livre et Lecture
   - created, designed and developed by Léa Belzunces, Esther Bouquet and Déborah-Loïs Séry
 
-All of the next steps have been developed for a raspberry pi 3 B+ running Stretch Version 9 and an Epson TM-T20III. The articles that you want to print needs to be .txt files. The content needs to be in markdown with the following order: 
+All of the next steps have been developed for a raspberry pi 3 B+ running [Stretch Version 9](https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-04-09/) and an Epson TM-T20III. The articles that you want to print needs to be .txt files. The content needs to be in markdown with the following order: 
 
 - '#' → name of the newspaper 
 - '##' → title (h1)
