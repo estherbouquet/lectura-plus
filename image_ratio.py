@@ -4,15 +4,17 @@ from PIL import Image
 
 class ImageRatioCalculator:
   def __init__(self, raw_filename):
+    print("1 :" + raw_filename)
     self.filename = self.find_existing_img_file(raw_filename)
+    print("rawfilene2 :" + self.filename)
     self.img_width = None
     self.img_height = None
     self.read_image_dimensions()
     self.aspect_ratio = self.calculate_aspect(self.img_width, self.img_height)
 
   def find_existing_img_file(self, filename):
-    downcase_img_file = f"{filename}.jpg"
-    upcase_img_file = f"{filename}.JPG"
+    downcase_img_file = filename+".jpg"
+    upcase_img_file = filename+".JPG"
 
     if path.exists(downcase_img_file):
       return downcase_img_file
@@ -32,7 +34,6 @@ class ImageRatioCalculator:
   def calculate_aspect(self, width, height):
     def gcd(a, b):
       return a if b == 0 else gcd(b, a % b)
-
     r = gcd(width, height)
     x = int(width / r)
     y = int(height / r)

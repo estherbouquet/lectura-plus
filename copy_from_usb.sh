@@ -45,8 +45,8 @@ then
 	python3 -c 'from led import cleanLed; cleanLed()' # On nettoie les ports utilisés par les leds
 
 	# On supprime les dossiers input et output
-	rm -r $input_folder
-	rm -r $output_folder
+	#rm -r $input_folder
+	#rm -r $output_folder
 	
 	#source /home/pi/Documents/lectura-plus/listeningForPushedButton.sh
 	

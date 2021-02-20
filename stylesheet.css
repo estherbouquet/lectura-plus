@@ -145,46 +145,46 @@ h4 {
 
 @font-face {
   font-family : "Barlow Condensed light";
-  src : url('/home/pi/.fonts/BarlowCondensed-Light.ttf');  
+  src : url('file:///home/pi/.fonts/BarlowCondensed-Light.ttf');  
 }
 
 @font-face {
   font-family : "Barlow Condensed regular";
-  src : url('/home/pi/.fonts/BarlowCondensed-Regular.ttf');  
+  src : url('file:///home/pi/.fonts/BarlowCondensed-Regular.ttf');  
 }
 
 @font-face {
   font-family : "Barlow Condensed medium";
-  src : url('/home/pi/.fonts/BarlowCondensed-Medium.ttf');  
+  src : url('file:///home/pi/.fonts/BarlowCondensed-Medium.ttf');  
 }
 
 @font-face {
   font-family : "Barlow Condensed semibold";
-  src : url('/home/pi/.fonts/BarlowCondensed-SemiBold.ttf');  
+  src : url('file:///home/pi/.fonts/BarlowCondensed-SemiBold.ttf');  
 }
 
 
 @font-face {
   font-family : "Inter light";
-  src : url('/home/pi/.fonts/Inter-Light-slnt=0.ttf');  
+  src : url('file:///home/pi/.fonts/Inter-Light-slnt=0.ttf');  
 }
 
 @font-face {
   font-family : "Inter light-italic";
-  src : url('/home/pi/.fonts/Inter-LightItalic.otf');  
+  src : url('file:///home/pi/.fonts/Inter-LightItalic.otf');  
 }
 
 @font-face {
   font-family : "Inter regular";
-  src : url('/home/pi/.fonts/Inter-Regular-slnt=0.ttf');  
+  src : url('file:///home/pi/.fonts/Inter-Regular-slnt=0.ttf');  
 }
 
 @font-face {
   font-family : "Inter regular-italic";
-  src : url('/home/pi/.fonts/Inter-Italic.otf');  
+  src : url('file:///home/pi/.fonts/Inter-Italic.otf');  
 }
 
 @font-face {
   font-family : "Inter medium";
-  src : url('/home/pi/.fonts/Inter-Medium-slnt=0.ttf');  
+  src : url('file:///home/pi/.fonts/Inter-Medium-slnt=0.ttf');  
 }
