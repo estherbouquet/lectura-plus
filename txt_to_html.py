@@ -3,7 +3,7 @@ import markdown # à installer à la main via `sudo apt-get install python3-mark
 import img_detection
 import update_markdown
 import adding_graphic_lines
-#from image_ratio import ImageRatioCalculator
+from image_ratio import ImageRatioCalculator
 
 # Fonction qui convertit notre fichier .txt courant dans ./input/ avec du texte en markdown à l'intérieur,
 # en fichier .html balisé dans ./output/
@@ -23,14 +23,14 @@ def layout(fullpath, input_folder, subdir):
 	# B- On crée et ouvre un fichier .html avec le même nom formaté que le fichier .txt actuel dans le dossier ./output/
 	output_file = open(r'./output/'+formatted_filename+'.html', 'w') # avec les droits d'écriture
 
-#	img_ratio_calculator = ImageRatioCalculator(filename)
+	img_ratio_calculator = ImageRatioCalculator(formatted_filename)
 
 	# C- On crée la balise head pour lier le CSS, nommer le fichier, déclarer le format des caractères en utf-8
 	if formatted_filename.startswith("METEO"):
 		header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet_meteo.css' rel='stylesheet'>\n</head>\n"
-#	elif img_ratio_calculator.horizontal_ratio():
+	elif img_ratio_calculator.horizontal_ratio():
     # TODO: écrire le css pour les imgs horizontales
-#		header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet_horizontale.css' rel='stylesheet'>\n</head>\n"
+		header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet_horizontale.css' rel='stylesheet'>\n</head>\n"
 	else:
 		header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet.css' rel='stylesheet'>\n</head>\n"                                                  
 		# créer la variable avec le tag et la date ici
@@ -40,7 +40,7 @@ def layout(fullpath, input_folder, subdir):
 	# D- On convertit le markdown de contents en balises html
 	html = markdown.markdown(contents) 
 	html = adding_graphic_lines.add(html)
-	#print(html)
+
 	# E- On écrit l'ouverture de la balise body 
 	output_file.write("<body>\n")
 	# on insère ici la variable tag
