@@ -3,7 +3,7 @@ import os
 
 def createQrCode(urlstr, filenameURL):
 	# nouveaux réglages / L a moins de correction que le M / 
-	url = pyqrcode.create(urlstr, 'L', 15, None, None)
+	url = pyqrcode.create(urlstr, 'L', 10, None, None)
 	url.png('./input/'+filenameURL+'.png', scale=3)
 	
 	# anciens réglages :
