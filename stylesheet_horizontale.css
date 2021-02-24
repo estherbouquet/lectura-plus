@@ -1,1 +1,239 @@
  /*TODO: Ecrire le CSS */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  width: 570px;
+}
+
+h6 {
+    font-size: 20pt;
+    font-family: "Barlow Condensed semibold", sans-serif;
+    padding: 20px 20px;
+    text-align: center;
+}
+
+h1{
+    font-size: 28pt;
+    font-family: "Barlow Condensed semibold", sans-serif;
+    text-align: center;
+    margin: 1em 1em 0.05em 1em;
+    line-height: 0.9;
+}
+
+h2 {
+    font-size: 20pt;
+    font-family: "Barlow Condensed semibold", sans-serif;
+    text-align: center;
+    margin: 1em 1em 0.05em 1em;
+}
+
+/*h3 {
+  font-size:24pt;
+  font-family:"Inter regular", sans-serif;
+  text-align: justify;
+  padding: 20px 0px;
+}*/
+
+sub{
+    font-size: 15pt; 
+}
+
+p {
+    font-size: 12pt;
+    font-family: "Inter regular";
+    font-weight: normal;
+    text-align: justify;
+    line-height: 1.3em;
+    margin-bottom: 0.6em;
+    padding: 0 35px;
+}
+
+.ticket > p, .italic > p {
+    font-family: "Inter light";
+    margin: 1em 0em;
+    font-size: 14pt;
+    line-height: 1.18em;
+    padding: 0 10px;
+}
+
+.italic > p {
+    font-family: "Inter light-italic";
+    padding: 0 10px;
+}
+
+em{
+ font-family:"Inter regular-italic";
+}
+
+.img-h > img {
+  margin: auto;
+  width: 100%;
+  display: block;
+  max-width: 500px;
+} 
+
+.blocEnteteh{
+	-webkit-transform: rotate(90deg);
+	-webkit-backface-visibily: hidden;
+    margin: auto 0;
+    height: 570px;
+}
+.blocEnteteh > .blocplus {
+    margin: 20px 0px;
+    padding: 0;
+}
+
+.blocplus > img, .logoL > img, .bloclogo > img, .qrcode > img {
+  width: 100%;
+} 
+ 
+h4, h3 {
+  display: none;
+}
+
+.qrcode {
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+.logoL{
+  width: 40px;
+  border: 2px black solid;
+  border-radius: 200px;
+  padding: 40px 55px;
+  display: block;
+  margin: 1.6em auto;
+}
+
+.entete{
+  background-color: black;
+  margin: 0 10px 10px 10px;
+}
+
+.tag {
+    font-family: "Barlow Condensed semibold";
+    color: white;
+    text-align: center;
+    font-size: 30pt;
+    padding: 15px 0 0 0;
+    letter-spacing: 0.5px;
+}
+
+.date{
+    text-align: center;
+    font-family: Barlow Condensed regular;
+    color: white;
+    margin-top: -25px;
+    font-size: 27pt;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.mentions > p {
+  font-family: "Inter medium";
+  font-size: 12pt;
+  padding: 0 10px;
+}
+
+.bloclogo{
+  /*margin-top: 5em;*/
+  width: 100%;
+}
+
+.blocplus {
+  margin: 20px 0px;
+  padding: 15px 10px;
+}
+
+/*
+.rotate {
+  -webkit-transform-origin: top left;
+  -webkit-transform: rotate(90deg) translate(0%,-95%);
+  display: grid;
+  height: 570px;
+  -webkit-grid-template-columns: 50%;
+  -webkit-grid-template-rows: 100px;
+  width: 570px;
+  align-items: baseline;
+}
+
+
+.bloc1{
+  width: 285px;
+  display: block;
+  -webkit-transform-origin-x: top left;
+  -webkit-transform: rotate(90deg) translate(-36%,-30%);  
+}
+
+.bloc2{
+  width: 285px;
+  -webkit-transform-origin: top left;
+  -webkit-transform: rotate(90deg) translate(-72%,-119.5%);  
+}
+*/
+.special {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.special2 {
+  margin: 10px 0px 15px 0;
+}
+
+.footer > img {
+  width: 570px;
+  /*height: 100%;*/
+}
+
+@font-face {
+  font-family : "Barlow Condensed light";
+  src : url('file:///home/pi/.fonts/BarlowCondensed-Light.ttf');  
+}
+
+@font-face {
+  font-family : "Barlow Condensed regular";
+  src : url('file:///home/pi/.fonts/BarlowCondensed-Regular.ttf');  
+}
+
+@font-face {
+  font-family : "Barlow Condensed medium";
+  src : url('file:///home/pi/.fonts/BarlowCondensed-Medium.ttf');  
+}
+
+@font-face {
+  font-family : "Barlow Condensed semibold";
+  src : url('file:///home/pi/.fonts/BarlowCondensed-SemiBold.ttf');  
+}
+
+
+@font-face {
+  font-family : "Inter light";
+  src : url('file:///home/pi/.fonts/Inter-Light-slnt=0.ttf');  
+}
+
+@font-face {
+  font-family : "Inter light-italic";
+  src : url('file:///home/pi/.fonts/Inter-LightItalic.otf');  
+}
+
+@font-face {
+  font-family : "Inter regular";
+  src : url('file:///home/pi/.fonts/Inter-Regular-slnt=0.ttf');  
+}
+
+@font-face {
+  font-family : "Inter regular-italic";
+  src : url('file:///home/pi/.fonts/Inter-Italic.otf');  
+}
+
+@font-face {
+  font-family : "Inter medium";
+  src : url('file:///home/pi/.fonts/Inter-Medium-slnt=0.ttf');  
+}

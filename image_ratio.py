@@ -4,7 +4,7 @@ from PIL import Image
 
 class ImageRatioCalculator:
   def __init__(self, raw_filename):
-    print("1 :" + raw_filename)
+    print(" :" + raw_filename)
     self.filename = self.find_existing_img_file(raw_filename)
     self.img_height = None
     self.img_width = None
@@ -12,8 +12,11 @@ class ImageRatioCalculator:
     self.aspect_ratio = self.calculate_aspect(self.img_width, self.img_height)
 
   def find_existing_img_file(self, filename):
-    downcase_img_file = "./input/"+filename+".jpg"
-    upcase_img_file = "./input/"+filename+".JPG"
+    if filename.startswith("METEO"): # si le fichier commence par METEO
+      return None
+    else:
+      downcase_img_file = "./input/"+filename+".jpg"
+      upcase_img_file = "./input/"+filename+".JPG"
     
     if path.exists(downcase_img_file):
       print("File exists:" + downcase_img_file)
@@ -28,6 +31,7 @@ class ImageRatioCalculator:
     if self.filename is not None:
       img = Image.open(self.filename)
       self.img_width, self.img_height = img.size
+      #print("img_size : "+str(img.size))
       return img.size
     else:
       pass
@@ -46,7 +50,7 @@ class ImageRatioCalculator:
       return x / y
 
   def horizontal_ratio(self):
-    if self.aspect_ratio is None or self.aspect_ratio < 1.01:
+    if self.aspect_ratio is None or self.aspect_ratio <= 1.45:
       return False
     else:
       self.rotate_image()
@@ -54,7 +58,7 @@ class ImageRatioCalculator:
       
   def rotate_image(self):
     image = Image.open(self.filename)
-    out = image.rotate(270, expand=True)
+    out = image.rotate(-90, expand=True)
     out.save(self.filename)
       
     

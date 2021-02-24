@@ -1,8 +1,9 @@
 from escpos.printer import Usb # import Usb class
 import random_article
+from PIL import Image
 
 # the number of prints before it prints a coupon is setup here
-limit = 20 
+limit = 19 
 # vendor and product ID allow us to communicate with the printer
 p = Usb(0x04b8, 0x0e28, 0) 
 
@@ -30,6 +31,8 @@ def printFile():
 	
 	# RANDOM PRINTING
 	article = random_article.selectRandomArticle()
+	article= Image.open(article)
+	article = article.rotate(180)
 	p.image(article) # article is the fullpath of the selected article
 	p.cut()
 	#p.image("/home/pi/Documents/lectura-plus/assets/marge-ticket.jpg")

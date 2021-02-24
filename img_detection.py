@@ -1,4 +1,5 @@
 import os
+from PIL import Image
 
 # On crée deux listes qui contiendront le nom des images repérées dans ./input/
 JPGFilenames = []
@@ -11,7 +12,7 @@ def findImg(input_folder):
 	for subdir, dirs, files in os.walk(input_folder): # Pour chaque chemin, dossiers et fichiers dans ./input_folder
 		for filename in files: # et pour chaque nom de fichier pour chaque fichier
 			fullpath = subdir + os.sep + filename # on enregistre le chemin du fichier et son nom dans une variable de type str (important sinon erreur d'ouverture car chemin et nom de nature différente)
-			
+
 			if filename.endswith(".JPG"): # Si le fichier finit par .JPG
 				formatted_filename = os.path.splitext(filename)[0] # On supprime l'extension .JPG du nom du fichier
 				JPGFilenames.append(formatted_filename) # On ajoute le nom formaté à notre liste
@@ -19,6 +20,7 @@ def findImg(input_folder):
 			if filename.endswith(".jpg"): # Si le fichier finit par .jpg
 				formatted_filename = os.path.splitext(filename)[0] # On supprime l'extension .jpg du nom du fichier
 				jpgFilenames.append(formatted_filename) # On ajoute le nom formaté à notre liste
+
 
 
 # Fonction qui détecte si le nom du fichier texte courant correspond au nom d'une image listée
