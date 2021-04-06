@@ -101,7 +101,7 @@ You can link a .jpg or a .JPEG file to the corresponding .txt file (if the artic
         
 - turn the printer off and restart it to use it
 
-## 🔘 install the button that will control the printer
+## 🔘 install the button controlling the printer
 
 Because the code that launches the printer is linked to a physical button being pushed or not, we need to physically connect the button to the raspberry. We added at LED and resistor as there is no GUI involved in this project so it tells people that the print is being processed and they don't need to push the button again.
 
@@ -116,9 +116,10 @@ Because the code that launches the printer is linked to a physical button being 
 ![how to connect](https://raw.githubusercontent.com/estherbouquet/lectura-plus/master/doc/connectique.JPG)
 
 ## 🕐 install the RTC (Real Time Clock)
-The Raspberry Pi is designed to be an ultra-low cost computer, so a lot of things we are used to on a computer have been left out. For example, your laptop and computer have a little coin-battery-powered 'Real Time Clock'  (RTC) module, which keeps time even when the power is off, or the battery removed. To keep costs low and the size small, an RTC is not included with the Raspberry Pi. Instead, the Pi is intended to be connected to the Internet via Ethernet or WiFi, updating the time automatically from the global ntp (nework time protocol) servers
 
-For this project, the raspberry has no network connection, so it will not be able to keep the time when the power goes out and be able to print articles. To fix this problem you need to connect and install a RTC by following the steps on [Adafruit's website](https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/overview). Don't forget to do `sudo hwclock -s` when you are done in order to write the RTC time back to the system time.
+The Raspberry Pi is designed to be an ultra-low cost computer, so a lot of things we are used to on a computer have been left out. For example, your laptop and computer have a little coin-battery-powered 'Real Time Clock' (RTC) module, which keeps time even when the power is off, or the battery removed. To keep costs low and the size small, an RTC is not included with the Raspberry Pi. Instead, the Pi is intended to be connected to the Internet via Ethernet or WiFi, updating the time automatically from the global ntp (network time protocol) servers.
+
+For this project, the raspberry has no network connection, so it will not be able to keep the time when the power goes out. This will lead to an error when we want to print an article at a specific date. To fix this problem you need to connect and install a RTC by following the steps on [Adafruit's website](https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/overview). Don't forget to do `sudo hwclock -s` when you are done in order to write the RTC time back to the system time.
 
 ## 💻 try the code
 
