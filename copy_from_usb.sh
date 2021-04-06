@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if [ -d "/home/pi/Documents/lectura-plus/articles" ] # Si le dossier /articles existe sur la clé AJOUT
+if [ -d "/media/pi/AJOUT/articles" ] # Si le dossier /articles existe sur la clé AJOUT
 then 
 	echo "Directory ./articles/ exists!"
-	#usb='/media/pi/AJOUT/articles/*'
-	usb='/home/pi/Documents/lectura-plus/articles/*'
+	usb='/media/pi/AJOUT/articles/*'
+	#usb='/home/pi/Documents/lectura-plus/articles/*'
 	# On crée les trois dossiers
 	#mkdir '/Users/leabelzunces/code/lectura-plus/input'
 	#mkdir '/Users/leabelzunces/code/lectura-plus/output'
