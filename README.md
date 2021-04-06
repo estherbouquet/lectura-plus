@@ -2,10 +2,10 @@
 an open-source old newspapers distributor based on [Lectura+ database](https://www.lectura.plus/Presse/). 📃
 
 this project was
-  - initiated by Auvergne-Rhône-Alpes Livre et Lecture
+  - initiated by Auvergne-Rhône-Alpes Livre et Lecture (Alizé Buisse and Priscille Legros)
   - created, designed and developed by Léa Belzunces, Esther Bouquet and Déborah-Loïs Séry
 
-All of the next steps have been developed for a raspberry pi 3 B+ running [Stretch Version 9](https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-04-09/) and an Epson TM-T20III. The articles that you want to print needs to be .txt files. The content needs to be in markdown with the following order: 
+All of the next steps have been developed for a raspberry pi 3 B+ running [Stretch Version 9](https://downloads.raspberrypi.org/raspbian/images/raspbian-2019-04-09/) and an Epson TM-T20III. The articles that you want to print need to be .txt files. The content needs to be in markdown with the following order: 
 
 - '#' → name of the newspaper 
 - '##' → title (h1)
@@ -15,7 +15,7 @@ All of the next steps have been developed for a raspberry pi 3 B+ running [Stret
 - '####' → URL to the online article (to generate a qrCode)
 - '#######' → category
 
-You can link a .jpg or a .JPEG file to the .txt files (if the article contains an illustration for instance) by giving them the same name.
+You can link a .jpg or a .JPEG file to the corresponding .txt file (if the article contains an illustration for instance) by giving it the same name.
 
 ![how codes and components are intertwined](https://github.com/estherbouquet/lectura-plus/blob/master/electrogif.gif)
 
