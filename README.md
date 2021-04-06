@@ -1,4 +1,4 @@
-# lectura+
+# L'Exprimante
 an open-source old newspapers distributor based on [Lectura+ database](https://www.lectura.plus/Presse/). 📃
 
 this project was
