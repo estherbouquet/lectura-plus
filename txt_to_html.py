@@ -3,13 +3,16 @@ import markdown # à installer à la main via `sudo apt-get install python3-mark
 import img_detection
 import update_markdown
 import adding_graphic_lines
+import horizontal_bloc
 from image_ratio import ImageRatioCalculator
+import add_footer
 
 # Fonction qui convertit notre fichier .txt courant dans ./input/ avec du texte en markdown à l'intérieur,
 # en fichier .html balisé dans ./output/
 def layout(fullpath, input_folder, subdir):
+	print("layout :" + fullpath)
 	update_markdown.rearrangeMardownOrder(fullpath) # on reformate le markdown utilisé pour un autre plus lisible
-
+	
 	# A- On ouvre le fichier pour récupérer le contenu
 	with open(fullpath, 'r') as myfile:
 
@@ -18,84 +21,48 @@ def layout(fullpath, input_folder, subdir):
 		filename = os.path.basename(myfile.name) # on récupère le chemin d'accès au fichier
 
 	formatted_filename = os.path.splitext(filename)[0] # on retire l'extension (.txt) du nom+chemin d'accès du fichier
-
+				
 	# B- On crée et ouvre un fichier .html avec le même nom formaté que le fichier .txt actuel dans le dossier ./output/
 	output_file = open(r'./output/'+formatted_filename+'.html', 'w') # avec les droits d'écriture
 
-  img_ratio_calculator = ImageRatioCalculator(formatted_filename)
+	img_ratio_calculator = ImageRatioCalculator(formatted_filename)
 
-	# C- On crée la balise head pour lier le CSS, nommer le fichier, déclarer le format des caractères en utf-8
-	if formatted_filename.startswith("METEO"):
-		header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet_meteo.css' rel='stylesheet'>\n</head>\n"
-	elif img_ratio_calculator.horizontal_ratio():
-    # TODO: écrire le css pour les imgs horizontales
-    header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet_horizontale.css' rel='stylesheet'>\n</head>\n"
-  else:
-		header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet.css' rel='stylesheet'>\n</head>\n"
+	# C- On ajoute et/ou crée le contenu
+	if img_ratio_calculator.horizontal_ratio(): # si true = si l'image est verticale plutôt qu'horizontale
+		if formatted_filename.startswith("METEO"): # et si l'article commence par METEO
+			header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet_meteo_h.css' rel='stylesheet'>\n</head>\n" # on charge stylesheet_meteo_h.css / black background & horizontal display
+		else: # pour tous les articles qui ne commencent pas par METEO
+			header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet_horizontale.css' rel='stylesheet'>\n</head>\n" # on charge stylesheet_horizontale.css / white background & h display
+		
+		output_file.write(header) # on écrit cette balise head
+		
+		
+		output_file.write("<body>\n") # on append la balise body 
 
-  output_file.write(header) # et on l'écrit dans le fichier
+		html = markdown.markdown(contents) # on convertit notre markdown en div html
+		html = horizontal_bloc.add(html) # on ajoute le bloc entete en mode horizontal
 
-	# D- On convertit le markdown de contents en balises html
-	html = markdown.markdown(contents)
-	html = adding_graphic_lines.add(html)
-	#print(html)
-	# E- On écrit l'ouverture de la balise body
-	output_file.write("<body>\n")
-	# on insère ici la variable tag
-	output_file.write(html) # on insère le HTML converti
+		output_file.write(html) # on écrit 
+		output_file.write(img_detection.returnIfCorrespondingImgFor(formatted_filename, input_folder, subdir)) # on retourne le chemin vers l'image qui correspond au même filename
+		output_file.write("</div>\n") # on ferme la balise enteteh qu'on ouvre dans horizontal_bloc.add() mais qu'on ne peut pas fermer au moment où on la crée
+		
+		add_footer.horizontal(formatted_filename, output_file) # on appelle la fonction horizontal du fichier add_footer qui vient ajouter les mentions, les logos, le qrcode et fermer le fichier
+		
+	else: # si img_ratio_calculator.horizontal_ratio() est faux, soit parce qu'il n'y a pas d'image, soit parce que celle-ci est horizontale
+		if formatted_filename.startswith("METEO"): # et si l'article commence par météo
+			header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet_meteo.css' rel='stylesheet'>\n</head>\n" # on charge stylesheet_meteo.css / black background & vertical display
+		else: # pour les autres articles
+			header = r"<head><meta charset='UTF-8'><title>"+formatted_filename+"</title><link href='../stylesheet.css' rel='stylesheet'>\n</head>\n" # on charge stylesheet.css / white background & v display
 
+		output_file.write(header) # et on l'écrit dans le fichier                                                   	
+		
+		output_file.write("<body>\n")
 
+		html = markdown.markdown(contents) 
+		html = adding_graphic_lines.add(html)
 
-	output_file.write(img_detection.returnIfCorrespondingImgFor(formatted_filename, input_folder, subdir)) # on insère ce que retourne la fonction returnIfCorrespondingImgFor
+		
+		output_file.write(html) # on insère le HTML converti
+		output_file.write(img_detection.returnIfCorrespondingImgFor(formatted_filename, input_folder, subdir)) # on insère ce que retourne la fonction returnIfCorrespondingImgFor	
 
-	# on insère le texte de présentation
-	if formatted_filename.startswith("METEO"):
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-barre-nb.png"></img>\n</div>')
-	else:
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-barre.png"></img>\n</div>')
-
-	output_file.write('<div class="ticket">\n<p>Un ticket de presse ancienne proposé par Lectura Plus, le site du patrimoine écrit et graphique en Auvergne-Rhône-Alpes.<br>À lire dans la minute ! Pour plus de découvertes, rendez-vous sur <u>www.lectura.plus</u></p>\n</div>')
-	output_file.write('<div class="italic">\n<p>Ticket lecteur à conserver - ne pas jeter sur la voie publique</p>\n</div>')
-
-	if formatted_filename.startswith("METEO"):
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-plus-nb.png"></img>\n</div>')
-	else:
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-plus-ok.png"></img>\n</div>') # ligne + + + + +
-
-	output_file.write('<div class="logoL">\n<img src=../assets/LogoL.png></img>\n</div>') # on insère le logo
-
-	if formatted_filename.startswith("METEO"):
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-plus-nb.png"></img>\n</div>')
-	else:
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-plus-ok.png"></img>\n</div>') # ligne + + + + +
-
-	# et les mentions légales
-	output_file.write('<div class="mentions">\n<p>Lectura Plus est un projet coopératif des Villes et Agglomérations d\'Annecy, Bourg-en-Bresse, Chambéry, Clermont-Ferrand, Grenoble, Lyon, Roanne, Saint-Étienne et Valence, réalisé avec le soutien de la DRAC Auvergne-Rhône-Alpes et coordonné par Auvergne-Rhône-Alpes Livre et Lecture.</p>\n</div>')
-	output_file.write('<div class="mentions">\n<p>Un projet imaginé et coordonné par Alizé Buisse et Priscille Legros, Auvergne-Rhône-Alpes Livre et Lecture. Dispositif numérique conçu par Léa Belzunces et Esther Bouquet. Conception graphique menée par Déborah-Loïs Séry. Fabrication artisanale par Guillaume Buisson, Atelier Regards.</p>\n</div>')
-
-	# et le bloc logos
-	if formatted_filename.startswith("METEO"):
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-plus-nb.png"></img>\n</div>')
-	else:
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-plus-ok.png"></img>\n</div>') # ligne + + + + +
-
-	if formatted_filename.startswith("METEO"):
-		output_file.write('<div class="bloclogo">\n<img src="../assets/blog-logo-complet-nb.jpg"></img>\n</div>')
-	else:
-		output_file.write('<div class="bloclogo">\n<img src="../assets/blog-logo-complet.jpg"></img>\n</div>')
-
-	if formatted_filename.startswith("METEO"):
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-plus-nb.png"></img>\n</div>')
-	else:
-		output_file.write('<div class="blocplus">\n<img src="../assets/element-plus-ok.png"></img>\n</div>') # ligne + + + + +
-
-
-	# et le QRcode
-	qrcode = "../input/" + formatted_filename + ".png" # on recrée le chemin d'accès vers le qrcode depuis ./input/
-	output_file.write('<div class="qrcode">\n<img src="' + qrcode + '"></img>\n</div>') # on insère le chemin d'accès du qrcode dans une balise img
-
-	# F- On écrit la fin de notre balise body
-	output_file.write("\n</body>")
-
-	# G- On ferme le fichier .html
-	output_file.close()
+		add_footer.vertical(formatted_filename, output_file)

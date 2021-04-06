@@ -34,13 +34,13 @@ then
 	#On réencode les fichiers txt qui ne sont pas encodés en utf-8 en appelant le script encoding.sh
 	source /home/pi/Documents/lectura-plus/encoding.sh
 
-	python3 -c 'from led import turnOnBlue; turnOnBlue()' #Allume la led blue au début de la conversion txt>HTML>images
+	python3 -c 'from led import turnOnYellow; turnOnYellow()' #Allume la led blue au début de la conversion txt>HTML>images
 
 	# On exécute le script python qui convertit les fichiers du dossier input en HTML dans ./output puis en jpg dans ./images
 	python3 file_converter.py
 	
 	python3 -c 'from led import turnOffGreen; turnOffGreen()' #Eteint la led verte 
-	python3 -c 'from led import turnOffBlue; turnOffBlue()' # et la led bleue à la fin de la conversion
+	python3 -c 'from led import turnOffYellow; turnOffYellow()' # et la led bleue à la fin de la conversion
 	python3 -c 'from led import tranferEnded; tranferEnded()' # transfert terminé avec succès
 	python3 -c 'from led import cleanLed; cleanLed()' # On nettoie les ports utilisés par les leds
 

@@ -4,40 +4,61 @@ from PIL import Image
 
 class ImageRatioCalculator:
   def __init__(self, raw_filename):
+    print(" :" + raw_filename)
     self.filename = self.find_existing_img_file(raw_filename)
-    self.img_width = None
     self.img_height = None
+    self.img_width = None
     self.read_image_dimensions()
     self.aspect_ratio = self.calculate_aspect(self.img_width, self.img_height)
 
   def find_existing_img_file(self, filename):
-    downcase_img_file = f"{filename}.jpg"
-    upcase_img_file = f"{filename}.JPG"
-
+    if filename.startswith("METEO"): # si le fichier commence par METEO
+      return None
+    else:
+      downcase_img_file = "./input/"+filename+".jpg"
+      upcase_img_file = "./input/"+filename+".JPG"
+    
     if path.exists(downcase_img_file):
+      print("File exists:" + downcase_img_file)
       return downcase_img_file
     elif path.exists(upcase_img_file):
+      print("File exists:" + upcase_img_file)
       return upcase_img_file
     else:
       return None
 
   def read_image_dimensions(self):
-    if self.filename:
+    if self.filename is not None:
       img = Image.open(self.filename)
       self.img_width, self.img_height = img.size
+      #print("img_size : "+str(img.size))
       return img.size
     else:
       pass
 
   def calculate_aspect(self, width, height):
-    def gcd(a, b):
-      return a if b == 0 else gcd(b, a % b)
+    if width is None or height is None:
+      return None
+    else:      
+      def gcd(a, b):
+        return a if b == 0 else gcd(b, a % b)
+      
+      r = gcd(width, height)
+      x = int(width / r)
+      y = int(height / r)
 
-    r = gcd(width, height)
-    x = int(width / r)
-    y = int(height / r)
-
-    return x / y
+      return x / y
 
   def horizontal_ratio(self):
-    return True if self.aspect_ratio > 1.01 else False
+    if self.aspect_ratio is None or self.aspect_ratio <= 1.45:
+      return False
+    else:
+      self.rotate_image()
+      return True
+      
+  def rotate_image(self):
+    image = Image.open(self.filename)
+    out = image.rotate(-90, expand=True)
+    out.save(self.filename)
+      
+    

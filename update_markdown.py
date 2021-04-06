@@ -8,8 +8,9 @@ def extractDate(receivedFile, fileData):
 	with open(receivedFile) as fin:
 		for i, line in enumerate(fin):
 			if i==1:
-				#print(line)
+				#print("1st line : "+line)
 				motif = ", (.*?) \(" # On cherche le motif de la date (compris entre ',' et (
+				
 				date = re.search(motif, fileData).group(0) # On sélectionne tout le motif
 				#print(date) #debug
 				return(date)
@@ -56,7 +57,9 @@ def rearrangeMardownOrder(myfile):
 	data = data.replace('\n# ', '\n###### ') # on change h1 en h6 (titre du journal)
 	data = data.replace('\n## ', '\n# ') # on change h2 en h1
 	data = data.replace('\n##### ', '\n## ') # on change h5 en h2
-	
+	data = data.replace('_', '') # on supprime parce que erreur sinon
+	data = data.replace('\n- ', '')
+
 	# POUR ENLEVER LA DATE LÀ OÙ ELLE EST INITIALEMENT (càd, après nom du jour sur ligne 2)
 	extractedDate = extractDate(myfile, data) # On vient récupérer la date retournée par extractDate (et qui est avec virgule et parenthèse)
 	data = data.replace(extractedDate, '<br>(') # On fait disparaître la date du document texte en la replaçant par un retour à la ligne  

@@ -40,7 +40,9 @@ for subdir, dirs, files in os.walk('./output'): # Pour chaque chemin, dossiers e
 		
 		outputfile = subdir + os.sep + filename # on aggrège le chemin d'accès du fichier dans ./output/ avec son nom et extension
 		jpgfile = './images/' + os.path.splitext(filename)[0] + '.jpg' # on retire .html du filename pour mettre .jpg et on ajoute le chemin vers ./images/
-		
+		#print(type(outputfile))
+		#print(type(jpgfile))
 		imgkit.from_file(outputfile, jpgfile, options=options) # on convertit outputfile en jpgfile
+		print(jpgfile + " > converted!")
 		#imgkit.from_file('./output/'+filename+'.html', './images/'+filename+'.jpg')
 

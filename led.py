@@ -13,7 +13,10 @@ GPIO.setup(21, GPIO.OUT) # GPIO.OUT -> on envoie sur la pin (OUTPUT), ce qui all
 GPIO.setup(16, GPIO.OUT) # GPIO.OUT -> on envoie sur la pin (OUTPUT), ce qui allumera la LED
 
 # Initialisation de la pin GPIOXX (LED rouge)
-GPIO.setup(24, GPIO.OUT) # GPIO.OUT -> on envoie sur la pin (OUTPUT), ce qui allumera la LED
+GPIO.setup(25, GPIO.OUT) # GPIO.OUT -> on envoie sur la pin (OUTPUT), ce qui allumera la LED
+
+# Initialisation de la pin GPIOXX (LED yellow)
+GPIO.setup(12, GPIO.OUT) # GPIO.OUT -> on envoie sur la pin (OUTPUT), ce qui allumera la LED
 
 def tranferEnded(): # F en morse
 	GPIO.output(21, GPIO.HIGH) # Alllume la LED
@@ -59,45 +62,47 @@ def turnOffBlue():
 
 def errName():
 	for i in range(2):
-		GPIO.output(24, GPIO.HIGH)
+		GPIO.output(25, GPIO.HIGH)
 		sleep(1)
-		GPIO.output(24, GPIO.LOW)
+		GPIO.output(25, GPIO.LOW)
 		sleep(0.5)
 	 
 	GPIO.cleanup() # Nettoie les ports utilisés 
 	
 def errDirMissing(): #dossier articles manquant sur clé usb AJOUT
 	for i in range(8):
-		GPIO.output(24, GPIO.HIGH) # Alllume la LED
+		GPIO.output(25, GPIO.HIGH) # Alllume la LED
 		sleep(0.1) # Eteint la LED 	
-		GPIO.output(24, GPIO.LOW)
+		GPIO.output(25, GPIO.LOW)
 		sleep(0.1)
 
 	GPIO.cleanup() 
 	
 def errFileMissing(): #fichier suppression.txt manquant sur clé usb SUPPR
 	for i in range(4):
-		GPIO.output(24, GPIO.HIGH) # Alllume la LED
+		GPIO.output(25, GPIO.HIGH) # Alllume la LED
 		sleep(0.1) # Eteint la LED 	
-		GPIO.output(24, GPIO.LOW)
+		GPIO.output(25, GPIO.LOW)
 		sleep(0.1)
-		GPIO.output(24, GPIO.HIGH) # Alllume la LED
+		GPIO.output(25, GPIO.HIGH) # Alllume la LED
 		sleep(0.5) # Eteint la LED 	
-		GPIO.output(24, GPIO.LOW)
+		GPIO.output(25, GPIO.LOW)
 		sleep(0.1)
 
 	GPIO.cleanup()
 
 def turnOnRed():
-	GPIO.output(24, GPIO.HIGH) # Alllume la LED
+	GPIO.output(25, GPIO.HIGH) # Alllume la LED
 
 def turnOffRed():
-	GPIO.output(24, GPIO.LOW)
+	GPIO.output(25, GPIO.LOW)
 	#GPIO.cleanup() # Nettoie les ports utilisés 
 
 
 def dirImagesDeleted():
 	turnOnRed()
+	sleep(0.2)
+	turnOnYellow()
 	sleep(0.2)
 	turnOnBlue()
 	sleep(0.2)
@@ -105,11 +110,19 @@ def dirImagesDeleted():
 	sleep(1)
 	turnOffGreen()
 	turnOffBlue()
+	turnOffYellow()
 	turnOffRed()
 	GPIO.cleanup()
 	
 def cleanLed():
 	GPIO.cleanup()	
+	
+def turnOnYellow():
+	GPIO.output(12, GPIO.HIGH) # Alllume la LED
+
+def turnOffYellow():
+	GPIO.output(12, GPIO.LOW)
+	#GPIO.cleanup() # Nettoie les ports utilisés 
 
 '''
 def turnOn():
