@@ -127,7 +127,7 @@ For this project, the raspberry has no network connection, so it will not be abl
   
   - check for updates `sudo apt-get update`
   
-  - install dependencies: `sudo apt-get install python3-markdown` and `sudo apt-get install wkhtmltopdf` and `pip3 install imgkit`
+  - install dependencies: `sudo apt-get install python3-markdown` and ~~`sudo apt-get install wkhtmltopdf`~~ and `pip3 install imgkit`
 
   - install dependency `pip3 install pyqrcode` and module `pip3 install pypng`
   
