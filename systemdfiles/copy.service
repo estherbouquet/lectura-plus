@@ -1,15 +1,18 @@
 [Unit]
-Description=Attend que quelqu'un appuie sur le bouton
+Description=Attend une cle usb
 After=network.target
 
 [Service]
 Type=simple
 WorkingDirectory=/home/pi/Documents/lectura-plus
-ExecStart=/bin/bash /home/pi/Documents/lectura-plus/listeningForPushedButton.sh
+ExecStart=/bin/bash /home/pi/Documents/lectura-plus/listeningForUSB.sh
 #Si on veut voir les logs en cas d'erreur:
 #StandardOutput=inherit
 #StandardError=inherit
 StandardOutput=null
+User=pi
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
+

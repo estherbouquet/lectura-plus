@@ -32,9 +32,9 @@ h2 {
 
 h3 {
   font-size:24pt;
-  font-family:"Inter regular", sans-serif;
+  font-family:"Inter medium", sans-serif;
   text-align: justify;
-  padding: 20px 0px;
+  padding: 20px 10px;
 }
 
 sub{
@@ -59,9 +59,6 @@ p {
 
 }
 
-.italic > p {
-    font-family: "Inter light-italic";
-}
 
 em{
  font-family:"Inter regular-italic";
@@ -163,17 +160,27 @@ h4 {
   src : url('file:///home/pi/.fonts/BarlowCondensed-SemiBold.ttf');  
 }
 
-
 @font-face {
   font-family : "Inter light";
-  src : url('file:///home/pi/.fonts/Inter-Light-slnt=0.ttf');  
+  src : url('file:///home/pi/.fonts/Inter-Light.woff2') format('woff2');  
 }
 
 @font-face {
   font-family : "Inter light-italic";
-  src : url('file:///home/pi/.fonts/Inter-LightItalic.otf');  
+  src : url('file:///home/pi/.fonts/Inter-LightItalic.woff2') format('woff2');  
 }
 
+@font-face {
+  font-family : "Inter regular";
+  src : url('file:///home/pi/.fonts/Inter-Regular.woff2') format('woff2');  
+}
+
+@font-face {
+  font-family : "Inter regular-italic";
+  src : url('file:///home/pi/.fonts/Inter-Italic.woff2') format('woff2');  
+}
+
+/*
 @font-face {
   font-family : "Inter regular";
   src : url('file:///home/pi/.fonts/Inter-Regular-slnt=0.ttf');  
@@ -183,8 +190,14 @@ h4 {
   font-family : "Inter regular-italic";
   src : url('file:///home/pi/.fonts/Inter-Italic.otf');  
 }
+*/
 
 @font-face {
   font-family : "Inter medium";
+  src : url('file:///home/pi/.fonts/Inter-Medium-slnt=0.ttf');  
+}
+
+@font-face {
+  font-family : "Inter medium-italic";
   src : url('file:///home/pi/.fonts/Inter-Medium-slnt=0.ttf');  
 }

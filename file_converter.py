@@ -9,7 +9,10 @@ import led
 
 # On customise la largeur par défaut créée par wkhtmltopdf qui est de base 1024
 options = {
-    'crop-w': '576' # On veut une largeur de 576 pixels
+	'enable-local-file-access':'',
+	#"xvfb": "",
+    'crop-w': '576', # On veut une largeur de 576 pixels
+	'quality': '100'
 }
 
 # On définit le dossier où sont les fichiers (textes et images) importés
