@@ -57,7 +57,7 @@ def rearrangeMardownOrder(myfile):
 	data = data.replace('\n# ', '\n###### ') # on change h1 en h6 (titre du journal)
 	data = data.replace('\n## ', '\n# ') # on change h2 en h1
 	data = data.replace('\n##### ', '\n## ') # on change h5 en h2
-	data = data.replace('_', '') # on supprime parce que erreur sinon
+	#data = data.replace('_', '') # on supprime parce que erreur sinon
 	data = data.replace('\n- ', '')
 
 	# POUR ENLEVER LA DATE LÀ OÙ ELLE EST INITIALEMENT (càd, après nom du jour sur ligne 2)
