@@ -40,7 +40,6 @@ def createHeader(currentFile, dateFromFile):
 def rearrangeMardownOrder(myfile):			
 	fin = open(myfile, 'r') # On ouvre le fichier en lecture
 	data = fin.read() # On copie le contenu lu dans la variable data
-	print("data lue : " + data)
 	fin.close() # On ferme le fichier
 	
 	fin = open(myfile, 'w') # On réouvre ce fichier avec les droits d'écriture
@@ -50,7 +49,7 @@ def rearrangeMardownOrder(myfile):
 	
 	fin = open(myfile, 'r') # On le réréouvre 
 	data = fin.read() # On le relit (avec la nouvelle ligne en haut du coup)
-	print("data 2 : "+data)
+	
 	# On stocke dans data les nouveaux changements de markdown sans que ça change le texte du fichier initial
 	
 	data = data.replace('﻿# ', '# ')
@@ -61,7 +60,7 @@ def rearrangeMardownOrder(myfile):
 	data = data.replace('\n##### ', '\n## ') # on change h5 en h2
 	#data = data.replace('_', '') # on supprime parce que erreur sinon
 	data = data.replace('\n- ', '')
-	print("data remplacées : "+data)
+
 	# POUR ENLEVER LA DATE LÀ OÙ ELLE EST INITIALEMENT (càd, après nom du jour sur ligne 2)
 	extractedDate = extractDate(myfile, data) # On vient récupérer la date retournée par extractDate (et qui est avec virgule et parenthèse)
 	data = data.replace(extractedDate, '<br>(') # On fait disparaître la date du document texte en la replaçant par un retour à la ligne  

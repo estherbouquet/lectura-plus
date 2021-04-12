@@ -44,12 +44,12 @@ then
 	python3 -c 'from led import turnOffYellow; turnOffYellow()' # et la led bleue à la fin de la conversion
 	python3 -c 'from led import tranferEnded; tranferEnded()' # transfert terminé avec succès
 	python3 -c 'from led import cleanLed; cleanLed()' # On nettoie les ports utilisés par les leds
-	echo "leds"
+	echo "leds éteintes"
 	
 	# On supprime les dossiers input et output
 	rm -r $input_folder
 	rm -r $output_folder
-	echo "c'est fini"
+	echo "tout est fini"
 	
 else # Si le dossier articles sur AJOUT n'existe pas 
 	echo "Directory ./articles/ doesn't exists!"
