@@ -167,7 +167,7 @@ In our case, the raspberry has no network connection, so it will not be able to 
 
   - after you have checked that the two programs work when they are launched manually, you can run them automatically when the raspberry starts following the instructions below.
 
-## 💻 automatize!
+## 🎢 automatize!
 
 It is important that you check if your programs run flowlessly when you launch them manually before starting automatizing them. 
 We are going to create 2 `.service` files because we are going to use `systemd`.
