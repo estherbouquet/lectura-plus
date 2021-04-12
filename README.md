@@ -135,7 +135,7 @@ In our case, the raspberry has no network connection, so it will not be able to 
     sudo apt-get install ./wkhtmltox_0.12.6-1.raspberrypi.stretch_armhf.deb 
     pip install coverage
     ```
-    📢 If you are not using Strech, go [here](https://wkhtmltopdf.org/downloads.html) and replace `wkhtmltox_0.12.6-1.raspberrypi.stretch_armhf.deb` with the right architecture for your distribution). 
+    📢 If you are not using Stretch, go [here](https://wkhtmltopdf.org/downloads.html) and replace `wkhtmltox_0.12.6-1.raspberrypi.stretch_armhf.deb` with the right architecture for your distribution). 
 
   - install dependencies: `sudo apt-get install python3-markdown` and `pip3 install imgkit`
 
@@ -143,7 +143,7 @@ In our case, the raspberry has no network connection, so it will not be able to 
   
   - clone this repository using git in ./Documents/ and your ssh key OR download it on your raspberry in ./Documents/ with `git clone https://github.com/estherbouquet/lectura-plus`
   - Once it is cloned, go to ./lectura-plus/
-  - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh` and `chmod u=rwx copy_from_usb.sh` and finally `chmod u=rwx delete_from_usb.sh`
+  - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh` and `chmod u=rwx copy_from_usb.sh`, `chmod u=rwx delete_from_usb.sh` and finally `chmod u=rwx listeningForUSB.sh`.
  
 - Render the fonts in the output result:
     - open the file explorer and go to `home/pi`
@@ -170,19 +170,46 @@ In our case, the raspberry has no network connection, so it will not be able to 
 ## 💻 automatize!
 
 It is important that you check if your programs run flowlessly when you launch them manually before starting automatizing them. 
-We are going to start by creating `.service` files because we are going to use `systemd`.
+We are going to create 2 `.service` files because we are going to use `systemd`.
 
 - Do `cd /etc/systemd/system`
-- `sudo nano printer.service`
-  - copy paste the content of `printer.service` that you can find in the `/home/pi/Documents/lectura-plus/systemdfiles` folder inside
+- 
+### For copy.service
+- `sudo nano copy.service`
+  - copy paste the content of `copy.service` that you can find in the `/home/pi/Documents/lectura-plus/systemdfiles` folder 
+  - you can uncomment `StandardOutput=inherit` and comment `StandardOuput=null` to be able to track errors
   - `ctrl + o` to write then press `enter` to valid the modifications then `ctrl + x` to exit
+  - you can check if it worked by using the command `cat copy.service`
+📢 Everytime you need to do changes in this service file, don't forget to do `sudo systemctl daemon-reload` so the changes are taken into account
+- `sudo systemctl start copy.service`
+- you can check the status of the service (i.e. if it works) by typing `systemctl status copy.service` (and use `ctrl + c` to exit if necessary)
+  - if it works correctly, a green "active" should appear in the terminal
+  - you can use `sudo journalctl -u copy.service` to log errors
+  - you can plug your usb. The green and then the yellow led should turn on
+  - if no errors are raised in the status mode when you plug the usb, it means that the program is working for far. Congrats!
+  - if no errors are encountered, the led will turn off meaning that the copy and conversion of the articles are over
+  - don't forget to uncomment/comment back `StandardOutput` when you are sure the program is working
+  - do a `sudo systemctl daemon-reload` so the changes are taken into account
+ - now, we can enable the service so it will run our program as soon as the raspberry boots. To do so:
+  - `sudo systemctl enable copy.service`
+  - `sudo reboot` and try to plug a usb drive when the raspberry is up and running!
+  - know that if one day you want to disable the `copy.service`, nothing simpler than `sudo systemctl disable copy.service`
+
+### For printer.service
+- `sudo nano printer.service`
+  - copy paste the content of `printer.service` that you can find in the `/home/pi/Documents/lectura-plus/systemdfiles` folder 
+  - `ctrl + o` to write then press `enter` to valid the modifications then `ctrl + x` to exit
+  - you can uncomment `StandardOutput=inherit` and comment `StandardOuput=null` to be able to track errors
+  - do a `sudo systemctl daemon-reload` so the changes are taken into account
   - you can check if it worked by using the command `cat printer.service`
 - `sudo systemctl start printer.service`
-- you can check the status of the service (i.e. if it works) by typing `systemctl status printer.service` (and use `ctrl + c` to exit)
-  - if it works correctly, a green "active" should appear
+- you can check the status of the service (i.e. if it works) by typing `systemctl status printer.service` (and use `ctrl + c` to exit if necessary)
+  - if it works correctly, a green "active" should appear in the terminal
   - you can use `sudo journalctl -u printer.service` to log errors
   - you can try to press the button. The blue led should blink twice and the printer print
   - if no errors are raised in the status mode when you push the button, it means that the program is working. Congrats!
+  - uncomment/comment back the `StandardOutput` lines
+  - do a `sudo systemctl daemon-reload` so the changes are taken into account
  - now, we can enable the service so it will run our program as soon as the raspberry boots. To do so:
   - `sudo systemctl enable printer.service`
   - `sudo reboot` and try to press the button when the raspberry starts up!
