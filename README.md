@@ -112,22 +112,32 @@ Because the code that launches the printer is linked to a physical button being 
     - 4 LED (1 yellow, 1 green, 1 red, 1 blue)
     - 4 resistors (XX for the blue LED and XX for the yellow, red and green LED)
     - 11 female-male cables
+    - 4 male-male cables
 
 ![how to connect](https://raw.githubusercontent.com/estherbouquet/lectura-plus/master/doc/connectique.JPG)
 
 ## 🕐 install the RTC (Real Time Clock)
 
-The Raspberry Pi is designed to be an ultra-low cost computer, so a lot of things we are used to on a computer have been left out. For example, your laptop and computer have a little coin-battery-powered 'Real Time Clock' (RTC) module, which keeps time even when the power is off, or the battery removed. To keep costs low and the size small, an RTC is not included with the Raspberry Pi. Instead, the Pi is intended to be connected to the Internet via Ethernet or WiFi, updating the time automatically from the global ntp (network time protocol) servers.
+The Raspberry Pi is designed to be an ultra-low cost computer, so it doesn't have a little coin-battery-powered 'Real Time Clock' (RTC) module, which keeps time even when the power is off, or the battery removed. Instead, the Pi is intended to be connected to the Internet via Ethernet or WiFi, updating the time automatically from the global ntp (network time protocol) servers.
 
-For this project, the raspberry has no network connection, so it will not be able to keep the time when the power goes out. This will lead to an error when we want to print an article at a specific date. To fix this problem you need to connect and install a RTC by following the steps on [Adafruit's website](https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/overview). Don't forget to do `sudo hwclock -s` when you are done in order to write the RTC time back to the system time.
+In our case, the raspberry has no network connection, so it will not be able to keep the time when the power goes out. This will lead to an error when we want to print an article at a specific date. To fix this problem you need to connect and install a RTC by following the steps on [Adafruit's website](https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/overview). Don't forget to do `sudo hwclock -s` when you are done in order to write the RTC time back to the system time.
 
 ## 💻 try the code
 
   - open your terminal
   
   - check for updates `sudo apt-get update`
-  
-  - install dependencies: `sudo apt-get install python3-markdown` and ~~`sudo apt-get install wkhtmltopdf`~~ and `pip3 install imgkit`
+
+  - install wkhtmltopdf with qt patched (we need it to use `imgkit`): 
+    ```bash
+    sudo apt-get install xvfb
+    wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.raspberrypi.stretch_armhf.deb 
+    sudo apt-get install ./wkhtmltox_0.12.6-1.raspberrypi.stretch_armhf.deb 
+    pip install coverage
+    ```
+    📢 If you are not using Strech, go [here](https://wkhtmltopdf.org/downloads.html) and replace `wkhtmltox_0.12.6-1.raspberrypi.stretch_armhf.deb` with the right architecture for your distribution). 
+
+  - install dependencies: `sudo apt-get install python3-markdown` and `pip3 install imgkit`
 
   - install dependency `pip3 install pyqrcode` and module `pip3 install pypng`
   
