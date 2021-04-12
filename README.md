@@ -214,3 +214,5 @@ We are going to create 2 `.service` files because we are going to use `systemd`.
   - `sudo systemctl enable printer.service`
   - `sudo reboot` and try to press the button when the raspberry starts up!
   - know that if one day you want to disable the `printer.service`, nothing simpler than `sudo systemctl disable printer.service`
+
+And now you're done! 🎉 Enjoy!
