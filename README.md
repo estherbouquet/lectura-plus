@@ -173,7 +173,7 @@ It is important that you check if your programs run flowlessly when you launch t
 We are going to create 2 `.service` files because we are going to use `systemd`.
 
 - Do `cd /etc/systemd/system`
-- 
+
 ### For copy.service
 - `sudo nano copy.service`
   - copy paste the content of `copy.service` that you can find in the `/home/pi/Documents/lectura-plus/systemdfiles` folder 
