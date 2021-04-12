@@ -169,7 +169,7 @@ In our case, the raspberry has no network connection, so it will not be able to 
 
 ## 🎢 automatize!
 
-It is important that you check if your programs run flowlessly when you launch them manually before starting automatizing them. 
+It is important that you check if your programs run flawlessly when you launch them manually before starting automatizing them. 
 We are going to create 2 `.service` files because we are going to use `systemd`.
 
 - Do `cd /etc/systemd/system`
