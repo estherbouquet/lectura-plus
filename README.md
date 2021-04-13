@@ -120,7 +120,7 @@ Because the code that launches the printer is linked to a physical button being 
 
 The Raspberry Pi is designed to be an ultra-low cost computer, so it doesn't have a little coin-battery-powered 'Real Time Clock' (RTC) module, which keeps time even when the power is off, or the battery removed. Instead, the Pi is intended to be connected to the Internet via Ethernet or WiFi, updating the time automatically from the global ntp (network time protocol) servers.
 
-In our case, the raspberry has no network connection, so it will not be able to keep the time when the power goes out. This will lead to an error when we want to print an article at a specific date. To fix this problem you need to connect and install a RTC by following the steps on [Adafruit's website](https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/overview). Don't forget to do `sudo hwclock -s` when you are done in order to write the RTC time back to the system time.
+In our case, the raspberry has no network connection, so it will not be able to keep the time when the power goes out. This will lead to an error when we want to print an article at a specific date. To fix this problem you need to connect and install a RTC by following the steps on [Adafruit's website](https://learn.adafruit.com/adding-a-real-time-clock-to-raspberry-pi/overview). Don't forget to do `sudo hwclock -s` when you are done in order to set the System Time from the Hardware Clock.
 
 ## 💻 try the code
 
