@@ -12,6 +12,11 @@ then
 	mkdir '/home/pi/Documents/lectura-plus/input'
 	mkdir '/home/pi/Documents/lectura-plus/output'
 
+	if  [ ! -d "/home/pi/Documents/lectura-plus/images" ]
+	then
+		mkdir '/home/pi/Documents/lectura-plus/images'
+	fi
+	
 	# On les stocke dans des variables
 	#input_folder='/Users/leabelzunces/code/lectura-plus/input'
 	#output_folder='/Users/leabelzunces/code/lectura-plus/output'
