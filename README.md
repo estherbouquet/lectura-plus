@@ -17,9 +17,6 @@ All of the next steps have been developed for a raspberry pi 3 B+ running [Stret
 
 You can link a .jpg or a .JPEG file to the corresponding .txt file (if the article contains an illustration for instance) by giving it the same name.
 
-![how codes and components are intertwined](https://github.com/estherbouquet/lectura-plus/blob/master/electrogif.gif)
-
-
 ## 💿 install [python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/user/installation.html)
   
   - open your terminal
