@@ -24,6 +24,7 @@ def createHeader(currentFile, dateFromFile):
 	#print("tag : "+tag) #debug
 	tag = tag.replace('PETITESANNONCES', 'PETITES ANNONCES')
 	tag = tag.replace('FAITDIVERS', 'FAIT DIVERS') # Si le tag est FAITDIVERS, on remplace par "fait divers"
+	#tag = tag.replace('_', ' ')
 	#print(tag) #ça marche !!
 	
 	motifdate = ", (.*?) \(" # idem que pour le tag
