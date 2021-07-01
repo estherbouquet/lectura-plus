@@ -137,6 +137,8 @@ In our case, the raspberry has no network connection, so it will not be able to 
   - install dependencies: `sudo apt-get install python3-markdown` and `pip3 install imgkit`
 
   - install dependency `pip3 install pyqrcode` and module `pip3 install pypng`
+
+  - use `sudo apt install inotify-tools` so we can detect the usb drive later
   
   - clone this repository using git in ./Documents/ and your ssh key OR download it on your raspberry in ./Documents/ with `git clone https://github.com/estherbouquet/lectura-plus`
   - Once it is cloned, go to ./lectura-plus/
