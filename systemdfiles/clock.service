@@ -1,0 +1,11 @@
+[Unit]
+Description=RTC
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/Documents/lectura-plus
+ExecStart=/bin/bash /home/pi/Documents/lectura-plus/rtc.sh
+
+[Install]
+WantedBy=multi-user.target
