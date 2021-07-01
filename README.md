@@ -154,7 +154,7 @@ In our case, the raspberry has no network connection, so it will not be able to 
     - be sure to be in the `lectura-plus` folder.
     - write `python3 listeningForUSB.py` in the terminal. It will start listening for a USB named 'ajout' being plugged into the raspberry
     - plug the usb drive with a folder named `articles` (inside of which you will have the articles you want to copy to the raspberry for a later print)
-      - `python3 listeningForUSB.py` is now supposed to launch `./copy_from_usb.sh` (will copy the content of ./articles/ and convert it)
+      - `./listeningForUSB.sh` is now supposed to launch `./copy_from_usb.sh` (will copy the content of ./articles/ and convert it)
         - if the red led is blinking eight times quickly, it means that there is no folder named `articles` detected
         - if the green led is turning on it means that the program is working
           - the blue led will turn on when all the files are copied (you can remove safely your usb at this moment)
