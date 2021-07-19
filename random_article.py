@@ -32,7 +32,7 @@ def selectRandomArticle():
 	
 	# Pour gérer quand on retourne un article météo ou un article normal, on ouvre le fichier countdown.txt
 	countdown = open("countdown.txt") 
-	
+
 	# et on le lit
 	for line in countdown:
 		count = int(line) # on récupère le chiffre (qui est en str) et on le transforme en int pour le sauvegarder dans count
@@ -61,3 +61,4 @@ def selectRandomArticle():
 			selectedArticle = printableArticles[randomIndex] # et on utilise ce nombre aléatoire comme index pour récupérer un article
 			print("count % n != 0 donc voici un article général : "+selectedArticle)
 			return selectedArticle # on retourne un article général
+	countdown.close()
