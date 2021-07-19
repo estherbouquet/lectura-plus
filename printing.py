@@ -1,5 +1,7 @@
 from escpos.printer import Usb # import Usb class
+import os
 import random_article
+import check
 from PIL import Image
 
 # the number of prints before it prints a coupon is setup here
@@ -28,6 +30,8 @@ def counting():
 # Function that prints a selected article when it is called;
 # uses random_article.py and its selectRandomArticle function to pick a random article
 def printFile():
+	# On vérifie si countdown est vide ou non et s'il l'est, on le remet à 0
+	check.fileSize()
 	
 	# RANDOM PRINTING
 	article = random_article.selectRandomArticle()
