@@ -218,7 +218,7 @@ We are going to create 2 `.service` files because we are going to use `systemd`.
 - to ensure that the raspberry takes the time from the RTC everytime it boots, we need to create a service too: `sudo nano clock.service`
   - copy paste the content of `clock.service` that you can find in the `/home/pi/Documents/lectura-plus/systemdfiles` folder 
   - `ctrl + o` to write then press `enter` to valid the modifications then `ctrl + x` to exit
-  - `sudo systemctl enable printer.service`
+  - `sudo systemctl enable clock.service`
   - `sudo reboot` and try to press the button when the raspberry starts up!
 
 And now you're done! 🎉 Enjoy!
