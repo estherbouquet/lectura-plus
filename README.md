@@ -222,7 +222,7 @@ We are going to create 2 `.service` files because we are going to use `systemd`.
   - `sudo reboot` and try to press the button when the raspberry starts up!
  
 ### For cleaning_usb.service
-- we noticed that sometimes the usb drive doesn't unmount correctly and leaves a very unconvenient folder named "AJOUT" in /media/pi. This is problematic when we try to plug our usb drive "AJOUT" as it will be renamed "AJOUT1" and thus preventing the copy of new articles. This service runs when the raspberry boots and deletes the leftovers folders in /media/pi. 
+- we noticed that sometimes the usb drive doesn't unmount correctly and leaves a very unconvenient folder named `AJOUT` in `/media/pi`. This is problematic when we try to plug our usb drive `AJOUT` as it will be renamed `AJOUT1` and thus preventing the copy of new articles. This service runs when the raspberry boots and deletes "leftover" folders in `/media/pi`. 
   - copy paste the content of `cleaning_usb.service` that you can find in the `/home/pi/Documents/lectura-plus/systemdfiles` folder 
   - `ctrl + o` to write then press `enter` to valid the modifications then `ctrl + x` to exit
   - `sudo systemctl daemon-reload`
