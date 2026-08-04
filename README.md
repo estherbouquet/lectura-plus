@@ -15,7 +15,7 @@ All of the next steps have been developed for a raspberry pi 3 B+ running [Stret
 - '####' → URL to the online article (to generate a qrCode)
 - '#######' → category
 
-You can link a .jpg or a .JPEG file to the corresponding .txt file (if the article contains an illustration for instance) by giving it the same name.
+You can link a .jpg or a .JPG file to the corresponding .txt file (if the article contains an illustration for instance) by giving it the same name.
 
 ## 💿 install [python-escpos - Python library to manipulate ESC/POS Printers](https://python-escpos.readthedocs.io/en/latest/user/installation.html)
   
@@ -142,7 +142,7 @@ In our case, the raspberry has no network connection, so it will not be able to 
   
   - clone this repository using git in ./Documents/ and your ssh key OR download it on your raspberry in ./Documents/ with `git clone https://github.com/estherbouquet/lectura-plus`
   - Once it is cloned, go to ./lectura-plus/
-  - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh` and `chmod u=rwx copy_from_usb.sh`, `chmod u=rwx delete_from_usb.sh` and finally `chmod u=rwx listeningForUSB.sh`.
+  - install bash dependency `sudo apt-get install recode` and allow privileges by copying `chmod u=rwx encoding.sh` in the terminal and then `chmod u=rwx listeningForPushedButton.sh` and `chmod u=rwx copy_from_usb.sh`, `chmod u=rwx delete_from_usb.sh`, `chmod u=rwx cleaning_usb.sh` and finally `chmod u=rwx listeningForUSB.sh`.
  
 - Render the fonts in the output result:
     - open the file explorer and go to `home/pi`
@@ -220,5 +220,14 @@ We are going to create 2 `.service` files because we are going to use `systemd`.
   - `ctrl + o` to write then press `enter` to valid the modifications then `ctrl + x` to exit
   - `sudo systemctl enable clock.service`
   - `sudo reboot` and try to press the button when the raspberry starts up!
+ 
+### For cleaning_usb.service
+- we noticed that sometimes the usb drive doesn't unmount correctly and leaves a very unconvenient folder named "AJOUT" in /media/pi. This is problematic when we try to plug our usb drive "AJOUT" as it will be renamed "AJOUT1" and thus preventing the copy of new articles. This service runs when the raspberry boots and deletes the leftovers folders in /media/pi. 
+  - copy paste the content of `cleaning_usb.service` that you can find in the `/home/pi/Documents/lectura-plus/systemdfiles` folder 
+  - `ctrl + o` to write then press `enter` to valid the modifications then `ctrl + x` to exit
+  - `sudo systemctl daemon-reload`
+  - `sudo systemctl start cleaning_usb.service`
+  - `sudo systemctl enable cleaning_usb.service`
+  - `sudo reboot` 
 
 And now you're done! 🎉 Enjoy!
