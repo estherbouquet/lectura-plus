@@ -1,0 +1,12 @@
+[Unit]
+Description=Nettoie les dossiers usb restants
+After=local-fs.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/pi/Documents/lectura-plus
+ExecStart=/bin/bash /home/pi/Documents/lectura-plus/cleaning_usb.sh
+StandardOutput=null
+
+[Install]
+WantedBy=multi-user.target
