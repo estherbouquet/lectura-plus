@@ -215,25 +215,31 @@ h4, h3 {
 
 @font-face {
   font-family : "Inter light";
-  src : url('file:///home/pi/.fonts/Inter-Light-slnt=0.ttf');  
+  src : url('file:///home/pi/.fonts/Inter-Light.woff2') format('woff2');  
 }
 
 @font-face {
   font-family : "Inter light-italic";
-  src : url('file:///home/pi/.fonts/Inter-LightItalic.otf');  
+  src : url('file:///home/pi/.fonts/Inter-LightItalic.woff2') format('woff2');  
 }
 
 @font-face {
   font-family : "Inter regular";
-  src : url('file:///home/pi/.fonts/Inter-Regular-slnt=0.ttf');  
+  src : url('file:///home/pi/.fonts/Inter-Regular.otf') format('woff2');  
 }
 
 @font-face {
   font-family : "Inter regular-italic";
-  src : url('file:///home/pi/.fonts/Inter-Italic.otf');  
+  src : url('file:///home/pi/.fonts/Inter-Italic.woff2') format('woff2');  
 }
 
 @font-face {
   font-family : "Inter medium";
-  src : url('file:///home/pi/.fonts/Inter-Medium-slnt=0.ttf');  
+  src : url('file:///home/pi/.fonts/Inter-Medium.otf');  
 }
+
+@font-face {
+  font-family : "Inter medium-italic";
+  src : url('file:///home/pi/.fonts/Inter-MediumItalic.otf');  
+}
+
